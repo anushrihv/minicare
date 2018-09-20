@@ -1,0 +1,10 @@
+com\minicare\controller\member\member.class
+com\minicare\junk.class
+com\minicare\dto\SeekerFormBean.class
+com\minicare\service\VisitorService.class
+com\minicare\controller\sitter\sitter.class
+com\minicare\dto\ValidationForm.class
+com\minicare\controller\visitor\Register.class
+com\minicare\dto\MemberFormBean.class
+com\minicare\controller\seeker\seeker.class
+com\minicare\dto\SitterFormBean.class
