@@ -10,6 +10,9 @@ button {
     font-size: 16px;
     border-radius: 12px;
 }
+form{
+text-align : center;
+}
 </style>
 
 <html>

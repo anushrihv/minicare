@@ -5,25 +5,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 public class PasswordHashHelper {
-    public static void main(String[] args) throws NoSuchAlgorithmException
-    {
-        String passwordToHash = "password";
-        byte[] salt = getSalt();
 
-//        String securePassword = get_SHA_256_SecurePassword(passwordToHash, salt);
-//        System.out.println(securePassword);
 
-        String securePassword = get_SHA_256_SecurePassword(passwordToHash, salt);
-        System.out.println(securePassword);
-
-//        securePassword = get_SHA_384_SecurePassword(passwordToHash, salt);
-//        System.out.println(securePassword);
-//
-//        securePassword = get_SHA_512_SecurePassword(passwordToHash, salt);
-//        System.out.println(securePassword);
-    }
-
-    private static String get_SHA_256_SecurePassword(String passwordToHash, byte[] salt)
+    public static String get_SHA_256_SecurePassword(String passwordToHash, byte[] salt)
     {
         String generatedPassword = null;
         try {
@@ -44,7 +28,7 @@ public class PasswordHashHelper {
         return generatedPassword;
     }
 
-    private static byte[] getSalt() throws NoSuchAlgorithmException
+    public static byte[] getSalt() throws NoSuchAlgorithmException
     {
         SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];

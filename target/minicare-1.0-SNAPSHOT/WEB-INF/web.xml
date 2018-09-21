@@ -31,15 +31,36 @@
         <servlet-name>Register</servlet-name>
         <servlet-class>com.minicare.controller.visitor.Register</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SeekerHomePage</servlet-name>
+        <servlet-class>com.minicare.controller.seeker.SeekerHomePage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SitterHomePage</servlet-name>
+        <servlet-class>com.minicare.controller.sitter.SitterHomePage</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
         <url-pattern>/visitor/register.do</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SeekerHomePage</servlet-name>
+        <url-pattern>/seeker/homepage.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SitterHomePage</servlet-name>
+        <url-pattern>/sitter/homepage.do</url-pattern>
+    </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>/jsp/welcome.jsp</welcome-file>
     </welcome-file-list>
+
+    <error-page>
+        <exception-type> java.lang.Exception </exception-type>
+        <location>/jsp/errorPage.jsp</location>
+    </error-page>
 
 
 </web-app>

@@ -2,11 +2,14 @@
 .error{
 color:red;
 }
+
+
 </style>
 
 <html>
     <body>
-        <form action="/minicare-1.0-SNAPSHOT/visitor/register.do" method="post">
+    <h1 style="text-align:center">Register here</h1>
+        <div align="center"><form action="/minicare-1.0-SNAPSHOT/visitor/register.do" method="post">
             <table>
                 <tr>
                     <td>First Name :</td>
@@ -30,7 +33,7 @@ color:red;
                 </tr>
                 <tr>
                     <td> Address : </td>
-                    <td> <textarea rows="4" cols="30" name="address" >${SeekerFormBean.address.trim()}</textarea> </td>
+                    <td> <textarea rows="4" cols="30" name="address" >${SitterFormBean.address.trim()}</textarea> </td>
                     <td class="error"> ${AddressError} </td>
                 </tr>
                 <tr>
@@ -51,7 +54,7 @@ color:red;
                 <tr>
                     <td> Expected Pay : </td>
                     <td> <input type="text" name="expectedpay" value="${SitterFormBean.expectedPay}"></td>
-                    <td class="error"> ${ExpectedPay} </td>
+                    <td class="error"> ${ExpectedPayError} </td>
                 </tr>
                 <tr>
                      <td>Sitter :</td>
@@ -60,6 +63,6 @@ color:red;
             </table>
             <input type="submit" value="Submit">
 
-        </form>
+        </form></div>
     </body>
 </html>

@@ -1,14 +1,18 @@
 package com.minicare.controller.visitor;
 
+import com.minicare.Exception.MiniCareException;
+import com.minicare.dto.PasswordHashHelper;
 import com.minicare.dto.SeekerFormBean;
 import com.minicare.dto.SitterFormBean;
+import com.minicare.model.SeekerModel;
+import com.minicare.model.SitterModel;
 import com.minicare.service.VisitorService;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+import java.sql.SQLException;
 
 
 public class Register extends HttpServlet {
@@ -18,43 +22,48 @@ public class Register extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         action(req, resp);
     }
 
 
 
 
-    private void action(HttpServletRequest req, HttpServletResponse resp) {
+    private void action(HttpServletRequest req, HttpServletResponse resp){
         try {
-                SitterFormBean sitterFormBean;
-                SeekerFormBean seekerFormBean
-                String type = req.getParameter("type");
-                VisitorService visitorService = VisitorService.getInstance();
-                if (type.equals("Sitter")) {
-                    visitorService.populateSitterFormBean(req);
-                    sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
+            SitterFormBean sitterFormBean;
+            SeekerFormBean seekerFormBean;
+            SitterModel sitterModel;
+            SeekerModel seekerModel;
+            VisitorService visitorService = VisitorService.getInstance();
+            String type = req.getParameter("type");
 
-                    if(!sitterFormBean.validate(req)){
-                        getServletContext().getRequestDispatcher("/jsp/sitter_register.jsp").forward(req,resp);
-                    }else{
 
-                    }
+            if (type.equals("Sitter")) {
+                visitorService.populateSitterFormBean(req);
+                sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
+
+                if (!sitterFormBean.validate(req)) {
+                    getServletContext().getRequestDispatcher("/jsp/sitter_register.jsp").forward(req, resp);
                 } else {
-                    visitorService.populateSeekerFormBean(req);
-                    seekerFormBean = (SeekerFormBean) req.getAttribute("SeekerFormBean");
+                    visitorService.storeSitterDetails(req);
+                    resp.sendRedirect("/minicare-1.0-SNAPSHOT/sitter/homepage.do");
 
-                    if (!seekerFormBean.validate(req)) {
-                        getServletContext().getRequestDispatcher("/jsp/seeker_register.jsp").forward(req, resp);
-                    }else{
-
-                    }
                 }
+            } else {
+                visitorService.populateSeekerFormBean(req);
+                seekerFormBean = (SeekerFormBean) req.getAttribute("SeekerFormBean");
 
-        }catch(ServletException e){
-            e.printStackTrace();
-        }catch(IOException e){
-            e.printStackTrace();
+                if (!seekerFormBean.validate(req)) {
+                    getServletContext().getRequestDispatcher("/jsp/seeker_register.jsp").forward(req, resp);
+                } else {
+                    visitorService.storeSeekerDetails(req);
+                    resp.sendRedirect("/minicare-1.0-SNAPSHOT/seeker/homepage.do");
+                }
+            }
+        }catch(Exception e){
+            String message = e.getMessage();
+            throw new MiniCareException(message);
         }
     }
 }

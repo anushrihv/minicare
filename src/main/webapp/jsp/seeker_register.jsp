@@ -6,7 +6,8 @@
 
 <html>
     <body>
-        <form action="/minicare-1.0-SNAPSHOT/visitor/register.do" method="post">
+        <h1 style="text-align:center">Register here</h1>
+        <div align="center"><form action="/minicare-1.0-SNAPSHOT/visitor/register.do" method="post">
 
             <table>
                 <tr>
@@ -62,6 +63,6 @@
             </table>
             <input type="submit" value="Submit">
 
-        </form>
+        </form></div>
     </body>
 </html>

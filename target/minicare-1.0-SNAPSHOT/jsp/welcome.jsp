@@ -9,7 +9,7 @@
             <input type="password" name="password" placeholder="Password" />
             <br>
             <input type="submit" value="Submit" />
-
+        </form>
 
             <br><br><br><br>
 
@@ -17,6 +17,6 @@
             <h3> New User :</h3>
             <a href="/minicare-1.0-SNAPSHOT/jsp/select_member.jsp"> Register Here</a>
 
-        </form>
+
     </body>
 </html>
