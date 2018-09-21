@@ -69,8 +69,7 @@ public abstract class MemberFormBean implements ValidationForm {
         return password;
     }
 
-    public void setPassword(String password,byte[] salt) {
-        //this.password = PasswordHashHelper.get_SHA_256_SecurePassword(password,salt);
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -78,8 +77,7 @@ public abstract class MemberFormBean implements ValidationForm {
         return password2;
     }
 
-    public void setPassword2(String password2,byte[] salt) {
-        //this.password2 = PasswordHashHelper.get_SHA_256_SecurePassword(password2,salt);
+    public void setPassword2(String password2) {
         this.password2 = password2;
     }
 
@@ -140,7 +138,8 @@ public abstract class MemberFormBean implements ValidationForm {
             status=false;
         }else if((password != null) && !password.equals(password2)){
             req.setAttribute("Password2Error","Passwords do not match");
-            logger.info(password);
+
+            logger.info("logging password"+password);
             logger.info(password2);
             status=false;
         }

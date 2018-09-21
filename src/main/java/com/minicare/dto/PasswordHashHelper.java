@@ -1,38 +1,38 @@
 package com.minicare.dto;
 
+import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
+
 
 public class PasswordHashHelper {
 
 
-    public static String get_SHA_256_SecurePassword(String passwordToHash, byte[] salt)
+    public static String get_SHA_256_SecurePassword(String passwordToHash)
     {
-        String generatedPassword = null;
+        String result = null;
+
         try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.update(salt);
-            byte[] bytes = md.digest(passwordToHash.getBytes());
-            StringBuilder sb = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++)
-            {
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-            }
-            generatedPassword = sb.toString();
+
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+
+            byte[] hash = digest.digest(passwordToHash.getBytes("UTF-8"));
+
+            return bytesToHex(hash); // make it printable
+
+        }catch(Exception ex) {
+
+            ex.printStackTrace();
+
         }
-        catch (NoSuchAlgorithmException e)
-        {
-            e.printStackTrace();
-        }
-        return generatedPassword;
+
+        return result;
+
     }
 
-    public static byte[] getSalt() throws NoSuchAlgorithmException
-    {
-        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
-        byte[] salt = new byte[16];
-        sr.nextBytes(salt);
-        return salt;
+    private static String  bytesToHex(byte[] hash) {
+
+        return DatatypeConverter.printHexBinary(hash);
+
     }
+
 }

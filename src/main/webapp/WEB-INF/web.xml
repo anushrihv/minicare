@@ -39,6 +39,10 @@
         <servlet-name>SitterHomePage</servlet-name>
         <servlet-class>com.minicare.controller.sitter.SitterHomePage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.minicare.controller.visitor.Login</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
@@ -51,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>SitterHomePage</servlet-name>
         <url-pattern>/sitter/homepage.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/visitor/login.do</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

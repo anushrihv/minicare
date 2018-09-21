@@ -18,4 +18,6 @@ com\minicare\model\SeekerModel.class
 com\minicare\dto\PasswordHashHelper.class
 com\minicare\controller\sitter\SitterHomePage.class
 com\minicare\controller\visitor\Register.class
+com\minicare\dto\LoginFormBean.class
+com\minicare\controller\visitor\Login.class
 com\minicare\dto\SitterFormBean.class

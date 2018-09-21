@@ -2,45 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4afcdd81-f9f8-4848-8fd3-6f4002805bdd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/minicare/controller/sitter/SitterHomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/minicare/model/SeekerModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/minicare/model/SitterModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/controller/member/member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/controller/member/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/seeker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/SeekerHomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/sitter/sitter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/dto/MemberFormBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/dto/MemberFormBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/dto/PasswordHashHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/dto/PasswordHashHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/dto/SitterFormBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/dto/SitterFormBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/service/VisitorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/service/VisitorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/seeker_register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/seeker_register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/select_member.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/select_member.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/sitter_register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/sitter_register.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/welcome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/welcome.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/controller/member/member.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/controller/seeker/seeker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/controller/sitter/sitter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/controller/visitor/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/controller/visitor/Register.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/dto/MemberFormBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/dto/MemberFormBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/dto/SitterFormBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/dto/SitterFormBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/dto/PasswordHashHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/dto/PasswordHashHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/service/VisitorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/service/VisitorService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/controller/member/member.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/controller/seeker/seeker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/controller/sitter/sitter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/controller/visitor/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/controller/visitor/Register.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dto/MemberFormBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dto/MemberFormBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dto/SitterFormBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dto/SitterFormBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dto/PasswordHashHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dto/PasswordHashHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/service/VisitorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/service/VisitorService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/jsp/seeker_register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/jsp/seeker_register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/jsp/select_member.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/jsp/select_member.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/jsp/sitter_register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/jsp/sitter_register.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/jsp/welcome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/jsp/welcome.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -55,7 +34,7 @@
     <session id="72041657">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.6" value="1" />
@@ -64,32 +43,32 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="47" />
-          <entry key="java" value="11352" />
-          <entry key="jsp" value="6263" />
-          <entry key="xml" value="552" />
+          <entry key="dummy" value="51" />
+          <entry key="java" value="13161" />
+          <entry key="jsp" value="6687" />
+          <entry key="xml" value="623" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="11352" />
-          <entry key="JSP" value="6263" />
-          <entry key="PLAIN_TEXT" value="47" />
-          <entry key="XML" value="552" />
+          <entry key="JAVA" value="13161" />
+          <entry key="JSP" value="6687" />
+          <entry key="PLAIN_TEXT" value="51" />
+          <entry key="XML" value="623" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="82" />
-          <entry key="jsp" value="33" />
-          <entry key="xml" value="5" />
+          <entry key="java" value="91" />
+          <entry key="jsp" value="34" />
+          <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="82" />
-          <entry key="JSP" value="33" />
-          <entry key="XML" value="5" />
+          <entry key="JAVA" value="91" />
+          <entry key="JSP" value="34" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
     </session>
@@ -99,78 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Register.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/MemberFormBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#662#663#0" expanded="true" />
-                <element signature="e#694#695#0" expanded="true" />
-                <element signature="e#744#745#0" expanded="true" />
-                <element signature="e#786#787#0" expanded="true" />
-                <element signature="e#821#822#0" expanded="true" />
-                <element signature="e#852#853#0" expanded="true" />
-                <element signature="e#900#901#0" expanded="true" />
-                <element signature="e#940#941#0" expanded="true" />
-                <element signature="e#978#979#0" expanded="true" />
-                <element signature="e#1012#1013#0" expanded="true" />
-                <element signature="e#1066#1067#0" expanded="true" />
-                <element signature="e#1112#1113#0" expanded="true" />
-                <element signature="e#1144#1145#0" expanded="true" />
-                <element signature="e#1172#1173#0" expanded="true" />
-                <element signature="e#1214#1215#0" expanded="true" />
-                <element signature="e#1248#1249#0" expanded="true" />
-                <element signature="e#1282#1283#0" expanded="true" />
-                <element signature="e#1312#1313#0" expanded="true" />
-                <element signature="e#1358#1359#0" expanded="true" />
-                <element signature="e#1396#1397#0" expanded="true" />
-                <element signature="e#1427#1428#0" expanded="true" />
-                <element signature="e#1454#1455#0" expanded="true" />
-                <element signature="e#1494#1495#0" expanded="true" />
-                <element signature="e#1526#1527#0" expanded="true" />
-                <element signature="e#1561#1562#0" expanded="true" />
-                <element signature="e#1592#1593#0" expanded="true" />
-                <element signature="e#1802#1803#0" expanded="true" />
-                <element signature="e#1834#1835#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/welcome.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/sitter_register.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-425">
-              <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/service/VisitorService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+            <state relative-caret-position="631">
+              <caret line="48" column="59" lean-forward="true" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,12 +88,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Login.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/service/VisitorService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            <state relative-caret-position="175">
+              <caret line="141" column="44" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1175#1176#0" expanded="true" />
+                <element signature="e#1212#1213#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -194,7 +105,80 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/PasswordHashHelper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/welcome.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="75" selection-start-line="10" selection-start-column="75" selection-end-line="10" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Login.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/LoginFormBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#252#253#0" expanded="true" />
+                <element signature="e#286#287#0" expanded="true" />
+                <element signature="e#318#319#0" expanded="true" />
+                <element signature="e#346#347#0" expanded="true" />
+                <element signature="e#394#395#0" expanded="true" />
+                <element signature="e#434#435#0" expanded="true" />
+                <element signature="e#469#470#0" expanded="true" />
+                <element signature="e#500#501#0" expanded="true" />
+                <element signature="e#581#582#0" expanded="true" />
+                <element signature="e#613#614#0" expanded="true" />
+                <element signature="e#644#645#0" expanded="true" />
+                <element signature="e#671#672#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/MemberFormBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1654">
+              <caret line="130" column="32" lean-forward="true" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1583#1584#0" expanded="true" />
+                <element signature="e#1623#1624#0" expanded="true" />
+                <element signature="e#1741#1742#0" expanded="true" />
+                <element signature="e#1783#1784#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dao/MemberDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -252,19 +236,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/member/HomePage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/SeekerHomePage.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/sitter_homepage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/sitter_register.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/seeker_register.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/sitter/SitterHomePage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/dao/SitterDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/dao/SeekerDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/dto/SitterFormBean.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/jsp/welcome.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Register.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dto/PasswordHashHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/dto/MemberFormBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minicare/service/VisitorService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dto/LoginForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dto/LoginFormBean.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/welcome.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Login.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dto/PasswordHashHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minicare/service/VisitorService.java" />
       </list>
     </option>
   </component>
@@ -431,7 +417,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537532183698" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537541430415" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -475,7 +461,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23373677" />
@@ -618,16 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dao/MemberDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/member/HomePage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -679,13 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/SitterFormBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dao/SitterDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -708,17 +677,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/seeker_register.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
           <caret line="65" column="21" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -729,17 +698,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dao/MemberDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/welcome.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="10" column="75" selection-start-line="10" selection-start-column="75" selection-end-line="10" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/SitterFormBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/PasswordHashHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/LoginFormBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#286#287#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#434#435#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#613#614#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="48" column="59" lean-forward="true" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -748,46 +766,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/MemberFormBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="1654">
+          <caret line="130" column="32" lean-forward="true" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="e#744#745#0" expanded="true" />
-            <element signature="e#786#787#0" expanded="true" />
-            <element signature="e#821#822#0" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#940#941#0" expanded="true" />
-            <element signature="e#978#979#0" expanded="true" />
-            <element signature="e#1012#1013#0" expanded="true" />
-            <element signature="e#1066#1067#0" expanded="true" />
-            <element signature="e#1112#1113#0" expanded="true" />
-            <element signature="e#1144#1145#0" expanded="true" />
-            <element signature="e#1172#1173#0" expanded="true" />
-            <element signature="e#1214#1215#0" expanded="true" />
-            <element signature="e#1248#1249#0" expanded="true" />
-            <element signature="e#1282#1283#0" expanded="true" />
-            <element signature="e#1312#1313#0" expanded="true" />
-            <element signature="e#1358#1359#0" expanded="true" />
-            <element signature="e#1396#1397#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="e#1454#1455#0" expanded="true" />
-            <element signature="e#1494#1495#0" expanded="true" />
-            <element signature="e#1526#1527#0" expanded="true" />
-            <element signature="e#1561#1562#0" expanded="true" />
-            <element signature="e#1592#1593#0" expanded="true" />
-            <element signature="e#1802#1803#0" expanded="true" />
-            <element signature="e#1834#1835#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1623#1624#0" expanded="true" />
+            <element signature="e#1741#1742#0" expanded="true" />
+            <element signature="e#1783#1784#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Register.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
+        <state relative-caret-position="357">
+          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -796,20 +790,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/service/VisitorService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+        <state relative-caret-position="175">
+          <caret line="141" column="44" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1175#1176#0" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
           </folding>
         </state>
       </provider>
