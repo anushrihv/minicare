@@ -1,12 +1,9 @@
 package com.minicare.dto;
 
-import com.minicare.Exception.MiniCareException;
-
 import javax.servlet.http.HttpServletRequest;
-import java.security.NoSuchAlgorithmException;
 import java.util.logging.Logger;
 
-public abstract class MemberFormBean implements ValidationForm {
+public class MemberFormBean implements ValidationForm {
     private Logger logger = Logger.getLogger(this.getClass().getName());
     private String firstname;
     private String lastname;

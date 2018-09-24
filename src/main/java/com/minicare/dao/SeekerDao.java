@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 public class SeekerDao {
     private static SeekerDao seekerDao;
-    private SeekerModel seekerModel;
     private PreparedStatement preparedStatement;
 
     private SeekerDao(){
@@ -28,7 +27,7 @@ public class SeekerDao {
     public void insertSeeker(SeekerModel seekerModel) throws ClassNotFoundException, SQLException {
 
             Connection connection = JDBCHelper.getConnection();
-            PreparedStatement preparedStatement;
+
 
             MemberDao memberDao = MemberDao.getInstance();
             memberDao.insertMember(connection, seekerModel);

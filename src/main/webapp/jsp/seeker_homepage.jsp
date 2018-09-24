@@ -1,13 +1,12 @@
 <style>
-button {
-    background-color: #555555; /* Black */
+ input[type=submit] {
+    background-color: #555555; /*black*/
     border: none;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
+    padding: 16px 32px;
     text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
     border-radius: 12px;
 }
 h1{
@@ -23,9 +22,10 @@ float : right ;
 <html>
     <body>
         <h1>Home Page</h1>
-        <button type="submit" formaction="">POST JOB</button><br>
-        <button type="submit" formaction="" class="right">CLOSE ACCOUNT</button>
-        <button type="submit" formaction="">LIST JOBS</button>
+        <form action="/minicare-1.0-SNAPSHOT/seeker/postjobform.do "><input type="submit" value="POST JOB"></form>
+        <form action="" class="right"><input type="submit" value="CLOSE ACCOUNT"></form>
+        <form action="/minicare-1.0-SNAPSHOT/seeker/listjob.do "><input type="submit" value="LIST JOBS"></form>
+
     </body>
 </html>
 

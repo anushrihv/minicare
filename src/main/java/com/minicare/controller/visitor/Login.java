@@ -8,10 +8,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
+
 
 public class Login extends HttpServlet {
 
@@ -32,14 +32,16 @@ public class Login extends HttpServlet {
             LoginFormBean loginFormBean = (LoginFormBean) req.getAttribute("LoginFormBean");
             if (!loginFormBean.validate(req)) {
                 getServletContext().getRequestDispatcher("/jsp/welcome.jsp").forward(req, resp);
-            } else if (!visitorService.authenticate(req, loginFormBean)) {
+            }else if (!visitorService.authenticate(req, loginFormBean)) {
                 getServletContext().getRequestDispatcher("/jsp/welcome.jsp").forward(req,resp);
             }else{
-                PrintWriter out = resp.getWriter();
-                out.print("authenticated");
                 String type= loginFormBean.getType();
-                if(type.equals("SITTER"))
+                String email = loginFormBean.getEmail();
+                HttpSession session = req.getSession();
+                visitorService.populateModelFromDb(email,session);
+                if(type.equals("SITTER")) {
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/sitter/homepage.do");
+                }
                 else
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/seeker/homepage.do");
             }

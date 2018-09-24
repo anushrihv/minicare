@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -46,7 +47,9 @@ public class Register extends HttpServlet {
                 if (!sitterFormBean.validate(req)) {
                     getServletContext().getRequestDispatcher("/jsp/sitter_register.jsp").forward(req, resp);
                 } else {
+                    HttpSession session = req.getSession();
                     visitorService.storeSitterDetails(req);
+                    session.setAttribute("CurrentUser",(SitterModel)req.getAttribute("SitterModel"));
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/sitter/homepage.do");
 
                 }
@@ -57,7 +60,9 @@ public class Register extends HttpServlet {
                 if (!seekerFormBean.validate(req)) {
                     getServletContext().getRequestDispatcher("/jsp/seeker_register.jsp").forward(req, resp);
                 } else {
+                    HttpSession session = req.getSession();
                     visitorService.storeSeekerDetails(req);
+                    session.setAttribute("CurrentUser",(SeekerModel)req.getAttribute("SeekerModel"));
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/seeker/homepage.do");
                 }
             }

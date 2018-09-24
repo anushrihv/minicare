@@ -3,15 +3,11 @@ package com.minicare.service;
 import com.minicare.dao.MemberDao;
 import com.minicare.dao.SeekerDao;
 import com.minicare.dao.SitterDao;
-import com.minicare.dto.LoginFormBean;
-import com.minicare.dto.PasswordHashHelper;
-import com.minicare.dto.SeekerFormBean;
-import com.minicare.dto.SitterFormBean;
-import com.minicare.model.SeekerModel;
-import com.minicare.model.SitterModel;
-import com.minicare.model.Type;
+import com.minicare.dto.*;
+import com.minicare.model.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,6 +21,7 @@ public class VisitorService{
     private SeekerDao seekerDao;
     private SitterDao sitterDao;
     private MemberDao memberDao;
+    private MemberModel memberModel;
 
 
     static {
@@ -145,6 +142,11 @@ public class VisitorService{
             req.setAttribute("LoginEmailError","This Email does not exist . Please register to continue");
             status=false;
         }else{
+            String memberStatus = resultSet.getString("Status");
+            if(memberStatus.equals("INACTIVE")){
+                req.setAttribute("LoginEmailError","This email does not exist. Please register to continue");
+                return false;
+            }
             String dbPassword = resultSet.getString("Password");
             String userPasswordHash = PasswordHashHelper.get_SHA_256_SecurePassword(req.getParameter("loginpassword"));
             if(!userPasswordHash.equals(dbPassword)){
@@ -159,4 +161,23 @@ public class VisitorService{
 
         return status;
     }
+
+    public void populateModelFromDb(String email, HttpSession session) throws SQLException,ClassNotFoundException{
+        memberDao = MemberDao.getInstance();
+        memberModel = new MemberModel();
+        ResultSet resultSet = memberDao.getMember(email);
+        resultSet.next();
+        memberModel.setFirstName(resultSet.getString("FirstName"));
+        memberModel.setLastName(resultSet.getString("LastName"));
+        memberModel.setPhoneNumber(resultSet.getLong("PhoneNumber"));
+        memberModel.setEmail(resultSet.getString("EmailAddress"));
+        memberModel.setType(Type.valueOf(resultSet.getString("Type")));
+        memberModel.setAddress(resultSet.getString("Address"));
+        memberModel.setStatus(Status.valueOf(resultSet.getString("Status")));
+        memberModel.setPassword(resultSet.getString("Password"));
+
+        session.setAttribute("CurrentUser",memberModel);
+    }
+
+
 }

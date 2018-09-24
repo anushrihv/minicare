@@ -10,6 +10,7 @@ public class MemberModel {
     private Status status;
     private String password;
 
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
