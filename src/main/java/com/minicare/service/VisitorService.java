@@ -8,7 +8,6 @@ import com.minicare.model.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -36,7 +35,7 @@ public class VisitorService{
         return visitorService;
     }
 
-    public void populateSeekerFormBean(HttpServletRequest req) throws NoSuchAlgorithmException{
+    public void populateSeekerFormBean(HttpServletRequest req) {
 
         seekerFormBean = new SeekerFormBean();
         seekerFormBean.setFirstname(req.getParameter("firstname"));
@@ -51,7 +50,7 @@ public class VisitorService{
         req.setAttribute("SeekerFormBean",seekerFormBean);
     }
 
-    public void populateSitterFormBean(HttpServletRequest req) throws NoSuchAlgorithmException {
+    public void populateSitterFormBean(HttpServletRequest req)  {
 
         sitterFormBean = new SitterFormBean();
         sitterFormBean.setFirstname(req.getParameter("firstname"));
@@ -66,22 +65,23 @@ public class VisitorService{
         req.setAttribute("SitterFormBean",sitterFormBean);
     }
 
-    public void storeSitterDetails(HttpServletRequest req) throws SQLException,ClassNotFoundException,NoSuchAlgorithmException{
+    public void storeSitterDetails(HttpServletRequest req,HttpSession session) throws SQLException,ClassNotFoundException{
         populateSitterModel(req);
         SitterModel sitterModel = (SitterModel) req.getAttribute("SitterModel");
         sitterDao = SitterDao.getInstance();
         sitterDao.insertSitter(sitterModel);
-
+        populateModelFromDb(sitterModel.getEmail(),session);
     }
 
-    public void storeSeekerDetails(HttpServletRequest req) throws SQLException,ClassNotFoundException,NoSuchAlgorithmException {
+    public void storeSeekerDetails(HttpServletRequest req,HttpSession session) throws SQLException,ClassNotFoundException {
         populateSeekerModel(req);
         SeekerModel seekerModel = (SeekerModel) req.getAttribute("SeekerModel");
         seekerDao = SeekerDao.getInstance();
         seekerDao.insertSeeker(seekerModel);
+        populateModelFromDb(sitterModel.getEmail(),session);
     }
 
-    private void populateSitterModel(HttpServletRequest req) throws NoSuchAlgorithmException{
+    private void populateSitterModel(HttpServletRequest req) {
 
         sitterModel = new SitterModel();
         long phoneNumber = Long.parseLong(sitterFormBean.getPhonenumber());
@@ -102,7 +102,7 @@ public class VisitorService{
         req.setAttribute("SitterModel",sitterModel);
     }
 
-    private void populateSeekerModel(HttpServletRequest req) throws NoSuchAlgorithmException{
+    private void populateSeekerModel(HttpServletRequest req) {
         seekerModel = new SeekerModel();
         int numberOfChildren;
         long phoneNumber = Long.parseLong(seekerFormBean.getPhonenumber());
@@ -167,6 +167,7 @@ public class VisitorService{
         memberModel = new MemberModel();
         ResultSet resultSet = memberDao.getMember(email);
         resultSet.next();
+        memberModel.setMemberId(resultSet.getInt("Id"));
         memberModel.setFirstName(resultSet.getString("FirstName"));
         memberModel.setLastName(resultSet.getString("LastName"));
         memberModel.setPhoneNumber(resultSet.getLong("PhoneNumber"));

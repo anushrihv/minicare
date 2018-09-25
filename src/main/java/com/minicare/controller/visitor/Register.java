@@ -48,7 +48,7 @@ public class Register extends HttpServlet {
                     getServletContext().getRequestDispatcher("/jsp/sitter_register.jsp").forward(req, resp);
                 } else {
                     HttpSession session = req.getSession();
-                    visitorService.storeSitterDetails(req);
+                    visitorService.storeSitterDetails(req,session);
                     session.setAttribute("CurrentUser",(SitterModel)req.getAttribute("SitterModel"));
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/sitter/homepage.do");
 
@@ -61,7 +61,7 @@ public class Register extends HttpServlet {
                     getServletContext().getRequestDispatcher("/jsp/seeker_register.jsp").forward(req, resp);
                 } else {
                     HttpSession session = req.getSession();
-                    visitorService.storeSeekerDetails(req);
+                    visitorService.storeSeekerDetails(req,session);
                     session.setAttribute("CurrentUser",(SeekerModel)req.getAttribute("SeekerModel"));
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/seeker/homepage.do");
                 }

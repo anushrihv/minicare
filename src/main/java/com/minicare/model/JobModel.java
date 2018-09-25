@@ -3,11 +3,20 @@ package com.minicare.model;
 import java.sql.Timestamp;
 
 public class JobModel {
+    int id;
     String jobTitle;
     Timestamp startDateTime;
     Timestamp endDateTime;
     int payPerHour;
     Status status;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getJobTitle() {
         return jobTitle;

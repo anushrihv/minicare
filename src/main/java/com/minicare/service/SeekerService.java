@@ -63,7 +63,7 @@ public class SeekerService {
     }
 
     public List<JobModel> getJobsById(HttpServletRequest request) throws SQLException,ClassNotFoundException{
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         jobDao = JobDao.getInstance();
         MemberModel memberModel = (MemberModel)session.getAttribute("CurrentUser");
         List<JobModel> jobModelList= jobDao.getJobsById(memberModel);

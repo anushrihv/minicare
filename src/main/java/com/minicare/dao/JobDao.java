@@ -52,7 +52,7 @@ public class JobDao {
         MemberDao memberDao = MemberDao.getInstance();
         String email = memberModel.getEmail();
         List<JobModel> jobModelList = new ArrayList<JobModel>();
-        JobModel jobModel = new JobModel();
+
 
         ResultSet resultSet = memberDao.getMember(email);
         resultSet.next();
@@ -66,6 +66,7 @@ public class JobDao {
         while (true){
            boolean contains = resultSet.next();
            if(contains){
+               JobModel jobModel = new JobModel();
                jobModel.setJobTitle(resultSet.getString("Title"));
                jobModel.setStartDateTime(resultSet.getTimestamp("StartDateTime"));
                jobModel.setEndDateTime(resultSet.getTimestamp("EndDateTime"));
@@ -75,6 +76,32 @@ public class JobDao {
            }else{
                break;
            }
+        }
+        return jobModelList;
+    }
+
+    public List<JobModel> getJobs() throws ClassNotFoundException,SQLException{
+        Connection connection = JDBCHelper.getConnection();
+        List<JobModel> jobModelList = new ArrayList<JobModel>();
+
+        String sql = "select * from job where Status=?";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,Status.ACTIVE.name());
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(true){
+            boolean contains = resultSet.next();
+            if(contains){
+                JobModel jobModel = new JobModel();
+                jobModel.setId(resultSet.getInt("Id"));
+                jobModel.setJobTitle(resultSet.getString("Title"));
+                jobModel.setStartDateTime(resultSet.getTimestamp("StartDateTime"));
+                jobModel.setEndDateTime(resultSet.getTimestamp("EndDateTime"));
+                jobModel.setPayPerHour(resultSet.getInt("PayPerHour"));
+                jobModel.setStatus(Status.valueOf(resultSet.getString("Status")));
+                jobModelList.add(jobModel);
+            }else{
+                break;
+            }
         }
         return jobModelList;
     }

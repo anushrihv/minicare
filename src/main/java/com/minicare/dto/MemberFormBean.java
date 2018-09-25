@@ -1,10 +1,10 @@
 package com.minicare.dto;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.logging.Logger;
+
 
 public class MemberFormBean implements ValidationForm {
-    private Logger logger = Logger.getLogger(this.getClass().getName());
+    private String memberId;
     private String firstname;
     private String lastname;
     private String phonenumber;
@@ -13,6 +13,14 @@ public class MemberFormBean implements ValidationForm {
     private String type;
     private String password;
     private String password2;
+
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -135,9 +143,6 @@ public class MemberFormBean implements ValidationForm {
             status=false;
         }else if((password != null) && !password.equals(password2)){
             req.setAttribute("Password2Error","Passwords do not match");
-
-            logger.info("logging password"+password);
-            logger.info(password2);
             status=false;
         }
 

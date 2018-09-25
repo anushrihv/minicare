@@ -1,6 +1,7 @@
 package com.minicare.model;
 
 public class MemberModel {
+    private int memberId;
     private String firstName;
     private String lastName;
     private long phoneNumber;
@@ -10,6 +11,13 @@ public class MemberModel {
     private Status status;
     private String password;
 
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
+    }
+
+    public int getMemberId() {
+        return memberId;
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
