@@ -4,6 +4,7 @@ C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\sit
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\service\JobApplicationService.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\dao\SeekerDao.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\model\MemberModel.java
+C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\seeker\ListApplications.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\visitor\Register.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\visitor\Login.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\model\SitterModel.java
@@ -25,6 +26,7 @@ C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\dao\SitterDao.
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\model\JobModel.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\service\SeekerService.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\model\JobApplicationModel.java
+C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\seeker\EditJob.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\sitter\SitterHomePage.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\dto\SitterFormBean.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\sitter\ListJobApplication.java

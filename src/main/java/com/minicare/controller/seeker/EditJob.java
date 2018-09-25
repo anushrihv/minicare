@@ -23,7 +23,7 @@ public class EditJob extends HttpServlet {
 
     private void action(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            
+
         }catch (Exception e){
             Logger logger = Logger.getLogger("EditJob");
             logger.log(Level.SEVERE,"Exception occurred",e);

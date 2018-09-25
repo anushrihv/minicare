@@ -73,4 +73,35 @@ public class JobApplicationDao {
         preparedStatement.setInt(2,jobApplicationId);
         preparedStatement.executeUpdate();
     }
+
+    public List<JobApplicationDTO> getJobApplicationsByJobId(int jobId) throws SQLException,ClassNotFoundException{
+        List<JobApplicationDTO> jobApplicationDTOList = new ArrayList<JobApplicationDTO>();
+        Connection connection = JDBCHelper.getConnection();
+        String sql = "select ja.Id , ja.JobId , ja.MemberId ,j.Title,m.FirstName,m.LastName,ja.ExpectedPay,ja.Status " +
+                "from jobapplication as ja,member as m,job as j " +
+                "where ja.JobId = j.Id and ja.MemberId = m.Id and ja.JobId=? and ja.Status=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,jobId);
+        preparedStatement.setString(2,Status.ACTIVE.name());
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(true){
+            boolean contains = resultSet.next();
+            if(contains){
+                JobApplicationDTO jobApplicationDTO = new JobApplicationDTO();
+                jobApplicationDTO.setJobApplicationId(resultSet.getInt("Id"));
+                jobApplicationDTO.setJobId(resultSet.getInt("JobId"));
+                jobApplicationDTO.setMemberId(resultSet.getInt("MemberId"));
+                jobApplicationDTO.setJobTitle(resultSet.getString("Title"));
+                jobApplicationDTO.setExpectedPay(resultSet.getDouble("ExpectedPay"));
+                jobApplicationDTO.setSitterFirstName(resultSet.getString("FirstName"));
+                jobApplicationDTO.setSitterLastName(resultSet.getString("LastName"));
+                jobApplicationDTO.setStatus(Status.valueOf(resultSet.getString("Status")));
+                jobApplicationDTOList.add(jobApplicationDTO);
+            }else{
+                break;
+            }
+        }
+        return jobApplicationDTOList;
+    }
+
 }

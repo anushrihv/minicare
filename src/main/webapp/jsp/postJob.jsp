@@ -3,7 +3,7 @@
     background-color: #555555; /*black*/
     border: none;
     color: white;
-    padding: 16px 32px;
+    padding: 10px 25px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;

@@ -3,7 +3,7 @@
     background-color: #555555; /*black*/
     border: none;
     color: white;
-    padding: 16px 32px;
+    padding: 10px 25px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -20,6 +20,7 @@ text-align : center;
 <html>
     <body>
         <h1>POST JOB</h1>
+        <div align="right"><form action="/minicare-1.0-SNAPSHOT/jsp/seeker_homepage.jsp" class="button"> <input type="submit" value="HOME" > </form></div>
         <div align ="center"><form action="/minicare-1.0-SNAPSHOT/seeker/postjob.do">
             <table>
                 <tr>

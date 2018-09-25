@@ -1,6 +1,16 @@
 <%@page import="java.util.*,com.minicare.model.JobModel" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <style>
+input[type=submit] {
+    background-color: #555555; /*black*/
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
 table {
     border-collapse: collapse;
     width: 100%;
@@ -34,6 +44,24 @@ text-align:center
                 <td><c:out value="${Job.startDateTime}" /></td>
                 <td><c:out value="${Job.endDateTime}" /></td>
                 <td><c:out value="${Job.payPerHour}" /></td>
+                <td>
+                    <form action="/minicare-1.0-SNAPSHOT/seeker/editjob.do">
+                    <input type="hidden" name="JobId" value="${Job.id}">
+                    <input type="submit" value="Edit job" >
+                    </form>
+                </td>
+                <td>
+                    <form action="/minicare-1.0-SNAPSHOT/seeker/listapplications.do">
+                    <input type="hidden" name="JobId" value="${Job.id}">
+                    <input type="submit" value="List applications" >
+                    </form>
+                </td>
+                <td>
+                    <form action="/minicare-1.0-SNAPSHOT/seeker/closejob.do">
+                    <input type="hidden" name="JobId" value="${Job.id}">
+                    <input type="submit" value="Close Job" >
+                    </form>
+                </td>
             </tr>
             </c:forEach>
         </table>

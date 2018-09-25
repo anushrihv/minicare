@@ -10,6 +10,24 @@ public class JobApplicationDTO {
     double expectedPay;
     double payPerHour;
     Status status;
+    String sitterFirstName;
+    String sitterLastName;
+
+    public String getSitterFirstName() {
+        return sitterFirstName;
+    }
+
+    public void setSitterFirstName(String sitterFirstName) {
+        this.sitterFirstName = sitterFirstName;
+    }
+
+    public String getSitterLastName() {
+        return sitterLastName;
+    }
+
+    public void setSitterLastName(String sitterLastName) {
+        this.sitterLastName = sitterLastName;
+    }
 
     public int getJobApplicationId() {
         return jobApplicationId;

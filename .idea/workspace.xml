@@ -2,44 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4afcdd81-f9f8-4848-8fd3-6f4002805bdd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/Exception/MiniCareException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/Exception/MiniCareException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/controller/visitor/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/dao/JDBCHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/dao/JDBCHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/EditJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/EditJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/dao/JobApplicationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/dao/JobApplicationDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/dao/JobDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/dao/JobDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/dto/MemberFormBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/dto/MemberFormBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/model/JobModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/model/JobModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/model/MemberModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/model/MemberModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/service/SeekerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/service/SeekerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/service/VisitorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/service/VisitorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/dto/JobApplicationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/dto/JobApplicationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minicare/service/JobApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minicare/service/JobApplicationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/listJobs.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/listJobs.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/postJob.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/postJob.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/sitter_homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/sitter_homepage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/Exception/MiniCareException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/Exception/MiniCareException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/controller/visitor/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/controller/visitor/Register.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/dao/JDBCHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/dao/JDBCHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/dao/JobDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/dao/JobDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/dto/MemberFormBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/dto/MemberFormBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/model/JobModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/model/JobModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/model/MemberModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/model/MemberModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/service/SeekerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/service/SeekerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/minicare/service/VisitorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/minicare/service/VisitorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/Exception/MiniCareException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/Exception/MiniCareException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/controller/visitor/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/controller/visitor/Register.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dao/JDBCHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dao/JDBCHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dao/JobDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dao/JobDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dto/MemberFormBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/dto/MemberFormBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/model/JobModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/model/JobModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/model/MemberModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/model/MemberModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/service/SeekerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/service/SeekerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/service/VisitorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/classes/com/minicare/service/VisitorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/jsp/sitter_homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/minicare-1.0-SNAPSHOT/jsp/sitter_homepage.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -64,100 +34,64 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="62" />
-          <entry key="java" value="22969" />
-          <entry key="jsp" value="10611" />
-          <entry key="xml" value="1246" />
+          <entry key="java" value="23876" />
+          <entry key="jsp" value="10972" />
+          <entry key="xml" value="1386" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="22969" />
-          <entry key="JSP" value="10611" />
+          <entry key="JAVA" value="23876" />
+          <entry key="JSP" value="10972" />
           <entry key="PLAIN_TEXT" value="62" />
-          <entry key="XML" value="1246" />
+          <entry key="XML" value="1386" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="java" value="167" />
-          <entry key="jsp" value="72" />
-          <entry key="xml" value="19" />
+          <entry key="java" value="178" />
+          <entry key="jsp" value="78" />
+          <entry key="xml" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="167" />
-          <entry key="JSP" value="72" />
-          <entry key="XML" value="19" />
+          <entry key="JAVA" value="178" />
+          <entry key="JSP" value="78" />
+          <entry key="XML" value="21" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/postJob.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/listJobs.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="37" column="63" selection-start-line="37" selection-start-column="63" selection-end-line="37" selection-end-column="63" />
+            <state relative-caret-position="161">
+              <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/EditJob.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/listActiveJobs.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+            <state relative-caret-position="340">
+              <caret line="32" column="141" selection-start-line="32" selection-start-column="141" selection-end-line="32" selection-end-column="141" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/CloseJob.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/ListJob.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="29" column="93" lean-forward="true" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/listJobApplications.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/model/JobModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-              <folding>
-                <element signature="e#233#234#0" expanded="true" />
-                <element signature="e#258#259#0" expanded="true" />
-                <element signature="e#291#292#0" expanded="true" />
-                <element signature="e#319#320#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,9 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dao/SeekerDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minicare/model/Type.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minicare/model/Status.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/select_member.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/errorPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/dao/MemberDao.java" />
@@ -219,22 +150,25 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/dao/JDBCHelper.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/applyJob.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/sitter/ApplyJob.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dao/JobDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dto/JobApplicationDTO.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/sitter_homepage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/Exception/MiniCareException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/sitter/ListJobApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/sitter/JobApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minicare/service/JobApplicationService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dao/JobApplicationDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/sitter/DeleteJobApplication.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/listJobApplications.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/listActiveJobApplications.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/listActiveJobs.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/jsp/postJob.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/jsp/listJobs.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/EditJob.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/postJob.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dto/JobApplicationDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minicare/service/JobApplicationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/ListApplications.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dao/JobApplicationDao.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/seekerJobApplications.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minicare/dao/JobDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/CloseJob.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/listJobs.jsp" />
       </list>
     </option>
   </component>
@@ -419,7 +353,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537880117867" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537886572890" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -512,27 +446,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/member/HomePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/sitter/SitterHomePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/PasswordHashHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="73" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/LoginFormBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -648,16 +561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/service/SeekerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="65" column="54" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -827,53 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/JobApplicationDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#279#280#0" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
-            <element signature="e#379#380#0" expanded="true" />
-            <element signature="e#435#436#0" expanded="true" />
-            <element signature="e#464#465#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#628#629#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#827#828#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#939#940#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1039#1040#0" expanded="true" />
-            <element signature="e#1076#1077#0" expanded="true" />
-            <element signature="e#1109#1110#0" expanded="true" />
-            <element signature="e#1161#1162#0" expanded="true" />
-            <element signature="e#1205#1206#0" expanded="true" />
-            <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#1267#1268#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1347#1348#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dao/JobDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/Exception/MiniCareException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -897,44 +753,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/sitter_homepage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/listActiveJobs.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/sitter/DeleteJobApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/service/JobApplicationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="57" column="63" selection-start-line="57" selection-start-column="63" selection-end-line="57" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dao/JobApplicationDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="954">
-          <caret line="72" column="51" selection-start-line="72" selection-start-column="51" selection-end-line="72" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -948,24 +770,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/postJob.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/listActiveJobApplications.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="32" column="154" selection-start-line="32" selection-start-column="154" selection-end-line="32" selection-end-column="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/listJobApplications.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -979,13 +787,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/ListJob.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/EditJob.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="29" column="93" lean-forward="true" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
+        <state relative-caret-position="359">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/listJobApplications.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dto/JobApplicationDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="e#336#337#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#568#569#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dao/JobApplicationDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="80" column="64" selection-start-line="80" selection-start-column="64" selection-end-line="80" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/service/JobApplicationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="60" column="61" selection-start-line="60" selection-start-column="61" selection-end-line="60" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/seekerJobApplications.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="42" column="63" lean-forward="true" selection-start-line="42" selection-start-column="63" selection-end-line="42" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -1002,27 +861,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/listJobs.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/ListApplications.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="32" column="103" selection-start-line="32" selection-start-column="103" selection-end-line="32" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/ListJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="27" column="62" lean-forward="true" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/service/SeekerService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="433">
-          <caret line="37" column="63" selection-start-line="37" selection-start-column="63" selection-end-line="37" selection-end-column="63" />
+          <caret line="68" column="49" lean-forward="true" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/dao/JobDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="69" column="50" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/postJob.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/sitter_homepage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/CloseJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="125" column="39" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="39" />
+        <state relative-caret-position="410">
+          <caret line="141" column="40" selection-start-line="141" selection-start-column="40" selection-end-line="141" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minicare/controller/seeker/EditJob.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/listActiveJobs.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="32" column="141" selection-start-line="32" selection-start-column="141" selection-end-line="32" selection-end-column="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/listJobs.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
         </state>
       </provider>
     </entry>

@@ -57,4 +57,10 @@ public class JobApplicationService {
         JobApplicationDao jobApplicationDao = JobApplicationDao.getInstance();
         jobApplicationDao.deleteJobApplication(jobApplicationId);
     }
+
+    public List<JobApplicationDTO> getJobApplicationsByJobId(int jobId) throws ClassNotFoundException,SQLException{
+        JobApplicationDao jobApplicationDao = JobApplicationDao.getInstance();
+        List<JobApplicationDTO> jobApplicationDTOList = jobApplicationDao.getJobApplicationsByJobId(jobId);
+        return jobApplicationDTOList;
+    }
 }

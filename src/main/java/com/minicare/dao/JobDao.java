@@ -67,6 +67,7 @@ public class JobDao {
            boolean contains = resultSet.next();
            if(contains){
                JobModel jobModel = new JobModel();
+               jobModel.setId(resultSet.getInt("Id"));
                jobModel.setJobTitle(resultSet.getString("Title"));
                jobModel.setStartDateTime(resultSet.getTimestamp("StartDateTime"));
                jobModel.setEndDateTime(resultSet.getTimestamp("EndDateTime"));

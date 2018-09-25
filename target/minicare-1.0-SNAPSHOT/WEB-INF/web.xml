@@ -71,6 +71,14 @@
         <servlet-name>DeleteJobApplication</servlet-name>
         <servlet-class>com.minicare.controller.sitter.DeleteJobApplication</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditJob</servlet-name>
+        <servlet-class>com.minicare.controller.seeker.EditJob</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListApplications</servlet-name>
+        <servlet-class>com.minicare.controller.seeker.ListApplications</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
@@ -116,6 +124,14 @@
     <servlet-mapping>
         <servlet-name>DeleteJobApplication</servlet-name>
         <url-pattern>/sitter/deletejobapplication.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditJob</servlet-name>
+        <url-pattern>/seeker/editjob.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListApplications</servlet-name>
+        <url-pattern>/seeker/listapplications.do</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

@@ -24,6 +24,7 @@ com\minicare\dao\JobApplicationDao.class
 com\minicare\dto\SitterFormBean.class
 com\minicare\controller\sitter\DeleteJobApplication.class
 com\minicare\model\SitterModel.class
+com\minicare\controller\seeker\EditJob.class
 com\minicare\dto\JobApplicationDTO.class
 com\minicare\dto\SeekerFormBean.class
 com\minicare\model\JobModel.class
@@ -37,3 +38,4 @@ com\minicare\dto\JobFormBean.class
 com\minicare\controller\seeker\SeekerHomePage.class
 com\minicare\controller\sitter\SitterHomePage.class
 com\minicare\dto\LoginFormBean.class
+com\minicare\controller\seeker\ListApplications.class
