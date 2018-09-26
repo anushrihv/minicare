@@ -34,6 +34,7 @@ public class JobApplicationDao {
         preparedStatement.setInt(2,jobApplicationModel.getMemberId());
         preparedStatement.setDouble(3,jobApplicationModel.getExpectedPay());
         preparedStatement.executeUpdate();
+        connection.close();
     }
 
     public List<JobApplicationDTO> getJobApplicationList(int memberId) throws SQLException,ClassNotFoundException{
@@ -62,16 +63,19 @@ public class JobApplicationDao {
                 break;
             }
         }
+        connection.close();
         return jobApplicationDTOList;
     }
 
-    public void deleteJobApplication(int jobApplicationId) throws SQLException,ClassNotFoundException{
+    public void deleteJobApplication(int jobId, int memberId) throws SQLException,ClassNotFoundException{
         Connection connection = JDBCHelper.getConnection();
-        String sql ="update jobapplication SET Status=? where Id=?";
+        String sql ="update jobapplication SET Status=? where JobId=? and MemberId=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,Status.INACTIVE.name());
-        preparedStatement.setInt(2,jobApplicationId);
+        preparedStatement.setInt(2,jobId);
+        preparedStatement.setInt(3,memberId);
         preparedStatement.executeUpdate();
+        connection.close();
     }
 
     public List<JobApplicationDTO> getJobApplicationsByJobId(int jobId) throws SQLException,ClassNotFoundException{
@@ -101,7 +105,27 @@ public class JobApplicationDao {
                 break;
             }
         }
+        connection.close();
         return jobApplicationDTOList;
     }
 
+    public void closeJobApplicationByJobId(int jobId) throws SQLException,ClassNotFoundException{
+        Connection connection = JDBCHelper.getConnection();
+        String sql ="update jobapplication SET Status=? where JobId=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,Status.INACTIVE.name());
+        preparedStatement.setInt(2,jobId);
+        preparedStatement.executeUpdate();
+        connection.close();
+    }
+
+    public void closeJobApplicationsByMemberId(int memberId) throws ClassNotFoundException,SQLException{
+        Connection connection = JDBCHelper.getConnection();
+        String sql = "update jobapplication SET Status=? where MemberId=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,Status.INACTIVE.name());
+        preparedStatement.setInt(2,memberId);
+        preparedStatement.executeUpdate();
+        connection.close();
+    }
 }

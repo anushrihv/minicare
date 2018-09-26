@@ -1,13 +1,26 @@
 package com.minicare.dto;
 
+import com.minicare.model.Status;
+
 import javax.servlet.http.HttpServletRequest;
 
 
 public class JobFormBean implements ValidationForm {
+    private String id;
     private String jobTitle;
+    private String postedBy;
     private String startDateTime;
     private String endDateTime;
     private String payPerHour;
+    private Status status;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getJobTitle() {
         return jobTitle;
@@ -15,6 +28,14 @@ public class JobFormBean implements ValidationForm {
 
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
+    }
+
+    public String getPostedBy() {
+        return postedBy;
+    }
+
+    public void setPostedBy(String postedBy) {
+        this.postedBy = postedBy;
     }
 
     public String getStartDateTime() {
@@ -39,6 +60,14 @@ public class JobFormBean implements ValidationForm {
 
     public void setPayPerHour(String payPerHour) {
         this.payPerHour = payPerHour;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public boolean validate(HttpServletRequest req) {

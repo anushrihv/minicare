@@ -1,8 +1,10 @@
 package com.minicare.dao;
 
+import com.minicare.dto.JobFormBean;
 import com.minicare.model.JobModel;
 import com.minicare.model.MemberModel;
 import com.minicare.model.Status;
+import org.apache.commons.beanutils.converters.SqlDateConverter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,9 +34,9 @@ public class JobDao {
         MemberDao memberDao = MemberDao.getInstance();
         String email = memberModel.getEmail();
 
-        ResultSet resultSet = memberDao.getMember(email);
-        resultSet.next();
-        int id = resultSet.getInt("Id");
+//        ResultSet resultSet = memberDao.getMember(email);
+//        resultSet.next();
+        int id = memberModel.getMemberId();
 
         String sql = "insert into job(Title,PostedBy,StartDateTime,EndDateTime,PayPerHour) values(?,?,?,?,?)";
         preparedStatement = connection.prepareStatement(sql);
@@ -42,7 +44,7 @@ public class JobDao {
         preparedStatement.setInt(2,id);
         preparedStatement.setTimestamp(3,jobModel.getStartDateTime());
         preparedStatement.setTimestamp(4,jobModel.getEndDateTime());
-        preparedStatement.setInt(5,jobModel.getPayPerHour());
+        preparedStatement.setDouble(5,jobModel.getPayPerHour());
         preparedStatement.executeUpdate();
         connection.close();
     }
@@ -52,17 +54,17 @@ public class JobDao {
         MemberDao memberDao = MemberDao.getInstance();
         String email = memberModel.getEmail();
         List<JobModel> jobModelList = new ArrayList<JobModel>();
-
-
-        ResultSet resultSet = memberDao.getMember(email);
-        resultSet.next();
-        int id = resultSet.getInt("Id");
+//
+//
+//        ResultSet resultSet = memberDao.getMember(email);
+//        resultSet.next();
+        int id = memberModel.getMemberId();
 
         String sql = "select * from job where Status=? and PostedBy=?";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, Status.ACTIVE.name());
         preparedStatement.setInt(2,id);
-        resultSet = preparedStatement.executeQuery();
+        ResultSet resultSet = preparedStatement.executeQuery();
         while (true){
            boolean contains = resultSet.next();
            if(contains){
@@ -78,6 +80,7 @@ public class JobDao {
                break;
            }
         }
+        connection.close();
         return jobModelList;
     }
 
@@ -104,8 +107,49 @@ public class JobDao {
                 break;
             }
         }
+        connection.close();
         return jobModelList;
     }
 
+    public JobModel getJobByJobId(int jobId) throws ClassNotFoundException,SQLException{
+        Connection connection = JDBCHelper.getConnection();
+        String sql ="select * from job where Id=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,jobId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if(resultSet.next()){
+            JobModel jobModel = new JobModel();
+            jobModel.setId(resultSet.getInt("Id"));
+            jobModel.setJobTitle(resultSet.getString("Title"));
+            jobModel.setStartDateTime(resultSet.getTimestamp("StartDateTime"));
+            jobModel.setEndDateTime(resultSet.getTimestamp("EndDateTime"));
+            jobModel.setPayPerHour(resultSet.getDouble("PayPerHour"));
+            jobModel.setStatus(Status.valueOf(resultSet.getString("Status")));
+            return jobModel;
+        }
+        return null;
+    }
 
+    public void closeJob(int jobId) throws ClassNotFoundException,SQLException{
+        Connection connection = JDBCHelper.getConnection();
+        String sql ="update job SET Status=? where Id=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,Status.INACTIVE.name());
+        preparedStatement.setInt(2,jobId);
+        preparedStatement.executeUpdate();
+        connection.close();
+    }
+
+    public void updateJob(JobModel jobModel) throws ClassNotFoundException, SQLException {
+        Connection connection = JDBCHelper.getConnection();
+        String sql ="update job SET Title=? , StartDateTime=? , EndDateTime=? , PayPerHour=? where Id=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,jobModel.getJobTitle());
+        preparedStatement.setTimestamp(2,jobModel.getStartDateTime());
+        preparedStatement.setTimestamp(3,jobModel.getEndDateTime());
+        preparedStatement.setDouble(4,Double.valueOf(jobModel.getPayPerHour()));
+        preparedStatement.setInt(5,jobModel.getId());
+        preparedStatement.executeUpdate();
+        connection.close();
+    }
 }

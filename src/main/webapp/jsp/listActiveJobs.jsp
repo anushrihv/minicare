@@ -47,6 +47,7 @@ text-align:center
                 <td>
                     <form action="/minicare-1.0-SNAPSHOT/sitter/applyjob.do">
                         <input type="hidden" name="JobId" value="${Job.id}">
+                        <input type="hidden" name="MemberId" value="${CurrentUser.memberId}">
                         <input type="submit" value="Apply" >
                     </form>
                 </td>

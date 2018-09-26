@@ -83,6 +83,18 @@
         <servlet-name>CloseJob</servlet-name>
         <servlet-class>com.minicare.controller.seeker.CloseJob</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateJob</servlet-name>
+        <servlet-class>com.minicare.controller.seeker.UpdateJob</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>com.minicare.controller.member.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SitterCloseAccount</servlet-name>
+        <servlet-class>com.minicare.controller.sitter.CloseAccount</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
@@ -140,6 +152,18 @@
     <servlet-mapping>
         <servlet-name>CloseJob</servlet-name>
         <url-pattern>/seeker/closejob.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateJob</servlet-name>
+        <url-pattern>/seeker/updatejob.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/member/logout.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SitterCloseAccount</servlet-name>
+        <url-pattern>/sitter/closeaccount.do</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

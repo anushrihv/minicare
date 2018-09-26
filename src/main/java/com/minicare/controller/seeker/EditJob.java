@@ -1,6 +1,8 @@
 package com.minicare.controller.seeker;
 
 import com.minicare.Exception.MiniCareException;
+import com.minicare.model.JobModel;
+import com.minicare.service.JobService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +25,11 @@ public class EditJob extends HttpServlet {
 
     private void action(HttpServletRequest req, HttpServletResponse resp) {
         try {
-
+            int jobId = Integer.parseInt(req.getParameter("JobId"));
+            JobService jobService = JobService.getInstance();
+            JobModel jobModel = jobService.getJobByJobId(jobId);
+            req.setAttribute("JobModel",jobModel);
+            getServletContext().getRequestDispatcher("/jsp/editJob.jsp").forward(req,resp);
         }catch (Exception e){
             Logger logger = Logger.getLogger("EditJob");
             logger.log(Level.SEVERE,"Exception occurred",e);

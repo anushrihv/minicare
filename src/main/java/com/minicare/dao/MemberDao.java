@@ -2,11 +2,15 @@ package com.minicare.dao;
 
 import com.minicare.model.MemberModel;
 import com.minicare.model.SeekerModel;
+import com.minicare.model.Status;
+import com.minicare.model.Type;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MemberDao {
     private static MemberDao memberDao;
@@ -43,15 +47,47 @@ public class MemberDao {
 
     }
 
-    public ResultSet getMember(String email) throws SQLException,ClassNotFoundException {
+    public Set<MemberModel> getMember(String email) throws SQLException,ClassNotFoundException {
         Connection connection = JDBCHelper.getConnection();
         PreparedStatement preparedStatement;
         ResultSet resultSet;
-        String sql = "select * from member where EmailAddress = ?";
+        Set<MemberModel> memberModelSet = new HashSet<MemberModel>();
+        String sql = "select * from member where EmailAddress = ? and Status=?";
 
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, email);
+        preparedStatement.setString(2,Status.ACTIVE.name());
         resultSet = preparedStatement.executeQuery();
-        return resultSet;
+        while(true){
+            boolean contains = resultSet.next();
+            if(contains){
+                MemberModel memberModel = new MemberModel();
+                memberModel.setMemberId(resultSet.getInt("Id"));
+                memberModel.setFirstName(resultSet.getString("FirstName"));
+                memberModel.setLastName(resultSet.getString("LastName"));
+                memberModel.setPhoneNumber(resultSet.getLong("PhoneNumber"));
+                memberModel.setEmail(resultSet.getString("EmailAddress"));
+                memberModel.setType(Type.valueOf(resultSet.getString("Type")));
+                memberModel.setAddress(resultSet.getString("Address"));
+                memberModel.setStatus(Status.valueOf(resultSet.getString("Status")));
+                memberModel.setPassword(resultSet.getString("Password"));
+                memberModelSet.add(memberModel);
+            }else{
+                break;
+            }
+        }
+        return memberModelSet;
+    }
+
+    public void deleteMember(int memberId) throws ClassNotFoundException,SQLException{
+        Connection connection = JDBCHelper.getConnection();
+        String sql = "update member SET Status=? where Id=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, Status.INACTIVE.name());
+        preparedStatement.setInt(2,memberId);
+        preparedStatement.executeUpdate();
+
+        try { preparedStatement.close(); } catch (Exception e) { /* ignored */ }
+        try { connection.close(); } catch (Exception e) { /* ignored */ }
     }
 }

@@ -1,11 +1,11 @@
 package com.minicare.controller.visitor;
 
 import com.minicare.Exception.MiniCareException;
-import com.minicare.dto.PasswordHashHelper;
 import com.minicare.dto.SeekerFormBean;
 import com.minicare.dto.SitterFormBean;
 import com.minicare.model.SeekerModel;
 import com.minicare.model.SitterModel;
+import com.minicare.service.MemberService;
 import com.minicare.service.VisitorService;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.SQLException;
+
 
 
 public class Register extends HttpServlet {
@@ -34,8 +34,6 @@ public class Register extends HttpServlet {
         try {
             SitterFormBean sitterFormBean;
             SeekerFormBean seekerFormBean;
-            SitterModel sitterModel;
-            SeekerModel seekerModel;
             VisitorService visitorService = VisitorService.getInstance();
             String type = req.getParameter("type");
 
@@ -43,21 +41,28 @@ public class Register extends HttpServlet {
             if (type.equals("Sitter")) {
                 visitorService.populateSitterFormBean(req);
                 sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
+                MemberService memberService = MemberService.getInstance();
 
                 if (!sitterFormBean.validate(req)) {
+                    getServletContext().getRequestDispatcher("/jsp/sitter_register.jsp").forward(req, resp);
+                } else if(!memberService.uniqueEmail(sitterFormBean.getEmail())){
+                    req.setAttribute("EmailError","This email already exists");
                     getServletContext().getRequestDispatcher("/jsp/sitter_register.jsp").forward(req, resp);
                 } else {
                     HttpSession session = req.getSession();
                     visitorService.storeSitterDetails(req,session);
                     session.setAttribute("CurrentUser",(SitterModel)req.getAttribute("SitterModel"));
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/sitter/homepage.do");
-
                 }
             } else {
                 visitorService.populateSeekerFormBean(req);
                 seekerFormBean = (SeekerFormBean) req.getAttribute("SeekerFormBean");
+                MemberService memberService = MemberService.getInstance();
 
                 if (!seekerFormBean.validate(req)) {
+                    getServletContext().getRequestDispatcher("/jsp/seeker_register.jsp").forward(req, resp);
+                } else if(!memberService.uniqueEmail(seekerFormBean.getEmail())){
+                    req.setAttribute("EmailError","This email already exists");
                     getServletContext().getRequestDispatcher("/jsp/seeker_register.jsp").forward(req, resp);
                 } else {
                     HttpSession session = req.getSession();

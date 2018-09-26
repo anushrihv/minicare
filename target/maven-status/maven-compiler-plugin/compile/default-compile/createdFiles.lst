@@ -13,9 +13,11 @@ com\minicare\junk.class
 com\minicare\service\SeekerService.class
 com\minicare\model\SeekerModel.class
 com\minicare\dto\PasswordHashHelper.class
+com\minicare\service\JobService.class
 com\minicare\controller\sitter\ListJobApplication.class
 com\minicare\model\JobApplicationModel.class
 com\minicare\service\SitterService.class
+com\minicare\controller\member\Logout.class
 com\minicare\controller\sitter\ShowJob.class
 com\minicare\controller\visitor\Register.class
 com\minicare\controller\seeker\ListJob.class
@@ -36,6 +38,10 @@ com\minicare\controller\seeker\PostJob.class
 com\minicare\dao\MemberDao.class
 com\minicare\dto\JobFormBean.class
 com\minicare\controller\seeker\SeekerHomePage.class
+com\minicare\controller\sitter\CloseAccount.class
+com\minicare\controller\seeker\UpdateJob.class
 com\minicare\controller\sitter\SitterHomePage.class
 com\minicare\dto\LoginFormBean.class
 com\minicare\controller\seeker\ListApplications.class
+com\minicare\service\MemberService.class
+com\minicare\controller\seeker\CloseJob.class

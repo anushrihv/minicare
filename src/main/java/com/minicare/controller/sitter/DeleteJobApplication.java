@@ -2,6 +2,7 @@ package com.minicare.controller.sitter;
 
 import com.minicare.Exception.MiniCareException;
 import com.minicare.dto.JobApplicationDTO;
+import com.minicare.model.MemberModel;
 import com.minicare.service.JobApplicationService;
 
 import javax.servlet.ServletException;
@@ -26,13 +27,13 @@ public class DeleteJobApplication extends HttpServlet {
 
     private void action(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            int jobApplicationId = Integer.parseInt(req.getParameter("JobApplicationId"));
+            int jobId = Integer.parseInt(req.getParameter("JobId"));
+            MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
             JobApplicationService jobApplicationService = JobApplicationService.getInstance();
-            jobApplicationService.deleteJobApplication(jobApplicationId);
+            jobApplicationService.deleteJobApplication(jobId,memberModel.getMemberId());
             List<JobApplicationDTO> jobApplicationDTOList = jobApplicationService.getJobApplicationList(req);
             req.setAttribute("ActiveJobApplicationList",jobApplicationDTOList);
             getServletContext().getRequestDispatcher("/jsp/listActiveJobApplications.jsp").forward(req,resp);
-            //resp.sendRedirect("/minicare-1.0-SNAPSHOT/jsp/listActiveJobApplications.jsp");
         }catch (Exception e){
             Logger logger = Logger.getLogger("DeleteJobApplication");
             logger.log(Level.SEVERE,"Exception occurred",e);

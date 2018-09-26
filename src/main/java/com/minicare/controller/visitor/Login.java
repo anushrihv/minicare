@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Login extends HttpServlet {
@@ -46,7 +48,9 @@ public class Login extends HttpServlet {
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/seeker/homepage.do");
             }
         }catch (Exception e){
-            throw new MiniCareException(e.getMessage());
+            Logger logger = Logger.getLogger("Login");
+            logger.log(Level.SEVERE,"Exception occurred",e);
+            throw new MiniCareException(e);
         }
     }
 }

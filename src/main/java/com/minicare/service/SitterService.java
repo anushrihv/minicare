@@ -1,10 +1,9 @@
 package com.minicare.service;
 
-import com.minicare.dao.JobDao;
-import com.minicare.model.JobModel;
-
+import com.minicare.dao.MemberDao;
+import com.minicare.dao.SitterDao;
 import java.sql.SQLException;
-import java.util.List;
+
 
 public class SitterService {
     static SitterService sitterService;
@@ -21,9 +20,11 @@ public class SitterService {
         return sitterService;
     }
 
-    public List<JobModel> getJobs() throws SQLException,ClassNotFoundException {
-        JobDao jobDao = JobDao.getInstance();
-        List<JobModel> jobModelList = jobDao.getJobs();
-        return jobModelList;
+    public void closeSitterAccount(int memberId) throws ClassNotFoundException,SQLException{
+        SitterDao sitterDao = SitterDao.getInstance();
+        MemberDao memberDao = MemberDao.getInstance();
+
+        sitterDao.deleteSitter(memberId);
+        memberDao.deleteMember(memberId);
     }
 }

@@ -23,7 +23,8 @@ float : right ;
     <body>
         <h1>Home Page</h1>
         <form action="/minicare-1.0-SNAPSHOT/seeker/postjobform.do "><input type="submit" value="POST JOB"></form>
-        <form action="" class="right"><input type="submit" value="CLOSE ACCOUNT"></form>
+        <form action="/minicare-1.0-SNAPSHOT/member/logout.do" class="right"><input type="submit" value="LOG OUT"></form>
+        <form action="/minicare-1.0-SNAPSHOT/seeker/closeaccount.do" class="right"><input type="submit" value="CLOSE ACCOUNT"></form>
         <form action="/minicare-1.0-SNAPSHOT/seeker/listjob.do "><input type="submit" value="LIST JOBS"></form>
 
     </body>

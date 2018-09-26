@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.Set;
 
 public class VisitorService{
     private static VisitorService visitorService;
@@ -137,26 +139,25 @@ public class VisitorService{
     public boolean authenticate(HttpServletRequest req , LoginFormBean loginFormBean) throws SQLException,ClassNotFoundException{
         boolean status=true;
         memberDao = MemberDao.getInstance();
-        ResultSet resultSet = memberDao.getMember(loginFormBean.getEmail());
-        if(resultSet.next()==false){
+        Set<MemberModel> memberModelSet = memberDao.getMember(loginFormBean.getEmail());
+        Iterator<MemberModel> iterator = memberModelSet.iterator();
+        if(!iterator.hasNext()){
             req.setAttribute("LoginEmailError","This Email does not exist . Please register to continue");
             status=false;
         }else{
-            String memberStatus = resultSet.getString("Status");
+            MemberModel memberModel = iterator.next();
+            String memberStatus = memberModel.getStatus().name();
             if(memberStatus.equals("INACTIVE")){
                 req.setAttribute("LoginEmailError","This email does not exist. Please register to continue");
                 return false;
             }
-            String dbPassword = resultSet.getString("Password");
+            String dbPassword = memberModel.getPassword();
             String userPasswordHash = PasswordHashHelper.get_SHA_256_SecurePassword(req.getParameter("loginpassword"));
             if(!userPasswordHash.equals(dbPassword)){
                 req.setAttribute("LoginPasswordError","Incorrect Password");
                 status=false;
             }
-        }
-
-        if(status==true){
-            loginFormBean.setType(resultSet.getString("Type"));
+            loginFormBean.setType(memberModel.getType().name());
         }
 
         return status;
@@ -164,18 +165,10 @@ public class VisitorService{
 
     public void populateModelFromDb(String email, HttpSession session) throws SQLException,ClassNotFoundException{
         memberDao = MemberDao.getInstance();
-        memberModel = new MemberModel();
-        ResultSet resultSet = memberDao.getMember(email);
-        resultSet.next();
-        memberModel.setMemberId(resultSet.getInt("Id"));
-        memberModel.setFirstName(resultSet.getString("FirstName"));
-        memberModel.setLastName(resultSet.getString("LastName"));
-        memberModel.setPhoneNumber(resultSet.getLong("PhoneNumber"));
-        memberModel.setEmail(resultSet.getString("EmailAddress"));
-        memberModel.setType(Type.valueOf(resultSet.getString("Type")));
-        memberModel.setAddress(resultSet.getString("Address"));
-        memberModel.setStatus(Status.valueOf(resultSet.getString("Status")));
-        memberModel.setPassword(resultSet.getString("Password"));
+
+        Set<MemberModel> memberModelSet = memberDao.getMember(email);
+        Iterator<MemberModel> iterator = memberModelSet.iterator();
+        MemberModel memberModel = iterator.next();
 
         session.setAttribute("CurrentUser",memberModel);
     }

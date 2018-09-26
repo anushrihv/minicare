@@ -5,9 +5,10 @@ import java.sql.Timestamp;
 public class JobModel {
     int id;
     String jobTitle;
+    int postedBy;
     Timestamp startDateTime;
     Timestamp endDateTime;
-    int payPerHour;
+    double payPerHour;
     Status status;
 
     public int getId() {
@@ -26,6 +27,14 @@ public class JobModel {
         this.jobTitle = jobTitle;
     }
 
+    public int getPostedBy() {
+        return postedBy;
+    }
+
+    public void setPostedBy(int postedBy) {
+        this.postedBy = postedBy;
+    }
+
     public Timestamp getStartDateTime() {
         return startDateTime;
     }
@@ -42,11 +51,11 @@ public class JobModel {
         this.endDateTime = endDateTime;
     }
 
-    public int getPayPerHour() {
+    public double getPayPerHour() {
         return payPerHour;
     }
 
-    public void setPayPerHour(int payPerHour) {
+    public void setPayPerHour(double payPerHour) {
         this.payPerHour = payPerHour;
     }
 

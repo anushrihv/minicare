@@ -46,7 +46,7 @@ text-align:center
                <td><c:out value="${Job.status}" /></td>
                 <td>
                 <form action="/minicare-1.0-SNAPSHOT/sitter/deletejobapplication.do">
-                   <input type="hidden" name="JobApplicationId" value="${Job.jobApplicationId}">
+                   <input type="hidden" name="JobId" value="${Job.jobId}">
                    <input type="submit" value="Delete" >
                 </form>
                 </td>

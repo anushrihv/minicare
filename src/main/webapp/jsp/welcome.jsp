@@ -6,9 +6,10 @@ color:red;
 
 <html>
     <body>
-        <h1>Welcome to Mini-Care</h1>
+        <h1 align="center">Welcome to Mini-Care</h1>
         <br><br><br><br>
-        <form action="/minicare-1.0-SNAPSHOT/visitor/login.do" method="post">
+        <div align="center"><form action="/minicare-1.0-SNAPSHOT/visitor/login.do" method="post">
+            <p style="color:green"> ${Message} </p>
             <h2>Login here</h2>
             <table>
                 <tr>
@@ -21,13 +22,14 @@ color:red;
                 </tr>
             </table>
             <input type="submit" value="Submit" />
-        </form>
+        </form></div>
 
-            <br><br><br><br>
+        <br><br><br><br>
 
 
-            <h3> New User :</h3>
-            <a href="/minicare-1.0-SNAPSHOT/jsp/select_member.jsp"> Register Here</a>
+        <div align="center"><h3> New User :</h3>
+        <a href="/minicare-1.0-SNAPSHOT/jsp/select_member.jsp"> Register Here</a>
+        </div>
     </body>
 </html>
 

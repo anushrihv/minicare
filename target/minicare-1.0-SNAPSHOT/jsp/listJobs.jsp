@@ -29,6 +29,7 @@ text-align:center
 <html>
     <body>
         <h1>LIST OF JOBS</h1>
+        <div align="right"><form action="/minicare-1.0-SNAPSHOT/jsp/seeker_homepage.jsp" > <input type="submit" value="HOME" > </form></div>
         <table>
             <tr>
                 <th> JOB TITLE </th>
