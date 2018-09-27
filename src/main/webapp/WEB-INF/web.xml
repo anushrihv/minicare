@@ -95,6 +95,30 @@
         <servlet-name>SitterCloseAccount</servlet-name>
         <servlet-class>com.minicare.controller.sitter.CloseAccount</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SeekerCloseAccount</servlet-name>
+        <servlet-class>com.minicare.controller.seeker.CloseAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SeekerEditAccountForm</servlet-name>
+        <servlet-class>com.minicare.controller.seeker.EditAccountForm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SeekerEditAccount</servlet-name>
+        <servlet-class>com.minicare.controller.seeker.EditAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SitterEditAccountForm</servlet-name>
+        <servlet-class>com.minicare.controller.sitter.EditAccountForm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SitterEditAccount</servlet-name>
+        <servlet-class>com.minicare.controller.sitter.EditAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPassword</servlet-name>
+        <servlet-class>com.minicare.controller.member.ResetPassword</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
@@ -165,6 +189,32 @@
         <servlet-name>SitterCloseAccount</servlet-name>
         <url-pattern>/sitter/closeaccount.do</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SeekerCloseAccount</servlet-name>
+        <url-pattern>/seeker/closeaccount.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SeekerEditAccountForm</servlet-name>
+        <url-pattern>/seeker/editaccountform.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SeekerEditAccount</servlet-name>
+        <url-pattern>/seeker/editaccount.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SitterEditAccountForm</servlet-name>
+        <url-pattern>/sitter/editaccountform.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SitterEditAccount</servlet-name>
+        <url-pattern>/sitter/editaccount.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPassword</servlet-name>
+        <url-pattern>/member/resetpasswordform.do</url-pattern>
+        <url-pattern>/member/resetpassword.do</url-pattern>
+    </servlet-mapping>
+
 
     <welcome-file-list>
         <welcome-file>/jsp/welcome.jsp</welcome-file>

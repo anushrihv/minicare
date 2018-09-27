@@ -1,6 +1,7 @@
 package com.minicare.service;
 
 import com.minicare.dao.JobApplicationDao;
+import com.minicare.dao.JobDao;
 import com.minicare.dto.JobApplicationDTO;
 import com.minicare.model.JobApplicationModel;
 import com.minicare.model.MemberModel;
@@ -68,4 +69,8 @@ public class JobApplicationService {
         jobApplicationDao.closeJobApplicationsByMemberId(sitterId);
     }
 
+    public void deleteJobApplicationsByJobId(int memberId) throws  ClassNotFoundException,SQLException{
+        JobApplicationDao jobApplicationDao = JobApplicationDao.getInstance();
+        jobApplicationDao.deleteJobApplicationByJobId(memberId);
+    }
 }

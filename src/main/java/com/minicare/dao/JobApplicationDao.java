@@ -34,6 +34,8 @@ public class JobApplicationDao {
         preparedStatement.setInt(2,jobApplicationModel.getMemberId());
         preparedStatement.setDouble(3,jobApplicationModel.getExpectedPay());
         preparedStatement.executeUpdate();
+
+        preparedStatement.close();
         connection.close();
     }
 
@@ -63,6 +65,7 @@ public class JobApplicationDao {
                 break;
             }
         }
+        preparedStatement.close();
         connection.close();
         return jobApplicationDTOList;
     }
@@ -75,6 +78,8 @@ public class JobApplicationDao {
         preparedStatement.setInt(2,jobId);
         preparedStatement.setInt(3,memberId);
         preparedStatement.executeUpdate();
+
+        preparedStatement.close();
         connection.close();
     }
 
@@ -105,6 +110,7 @@ public class JobApplicationDao {
                 break;
             }
         }
+        preparedStatement.close();
         connection.close();
         return jobApplicationDTOList;
     }
@@ -116,6 +122,8 @@ public class JobApplicationDao {
         preparedStatement.setString(1,Status.INACTIVE.name());
         preparedStatement.setInt(2,jobId);
         preparedStatement.executeUpdate();
+
+        preparedStatement.close();
         connection.close();
     }
 
@@ -126,6 +134,22 @@ public class JobApplicationDao {
         preparedStatement.setString(1,Status.INACTIVE.name());
         preparedStatement.setInt(2,memberId);
         preparedStatement.executeUpdate();
+
+        preparedStatement.close();
         connection.close();
+    }
+
+    public void deleteJobApplicationByJobId(int memberId) throws ClassNotFoundException,SQLException{
+        Connection connection = JDBCHelper.getConnection();
+        String sql = "update jobapplication SET Status=? where jobapplication.JobId IN(select job.Id " +
+                "from job where PostedBy=?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,Status.INACTIVE.name());
+        preparedStatement.setInt(2,memberId);
+        preparedStatement.executeUpdate();
+
+        preparedStatement.close();
+        connection.close();
+
     }
 }

@@ -90,4 +90,30 @@ public class MemberDao {
         try { preparedStatement.close(); } catch (Exception e) { /* ignored */ }
         try { connection.close(); } catch (Exception e) { /* ignored */ }
     }
+
+    public void editMember(MemberModel memberModel) throws ClassNotFoundException,SQLException{
+        Connection connection = JDBCHelper.getConnection();
+        String sql ="update member SET FirstName=? , LastName=? , PhoneNumber=? , EmailAddress=? , Address=? " +
+                "where Id=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,memberModel.getFirstName());
+        preparedStatement.setString(2,memberModel.getLastName());
+        preparedStatement.setLong(3,memberModel.getPhoneNumber());
+        preparedStatement.setString(4,memberModel.getEmail());
+        preparedStatement.setString(5,memberModel.getAddress());
+        preparedStatement.setInt(6,memberModel.getMemberId());
+        preparedStatement.executeUpdate();
+
+        preparedStatement.close();
+        connection.close();
+    }
+
+    public void updatePassword(int memberId , String newPassword)  throws ClassNotFoundException,SQLException{
+        Connection connection = JDBCHelper.getConnection();
+        String sql = "update member SET password = ? where Id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,newPassword);
+        preparedStatement.setInt(2,memberId);
+        preparedStatement.executeUpdate();
+    }
 }

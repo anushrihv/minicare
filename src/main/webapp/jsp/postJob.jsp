@@ -45,6 +45,7 @@ text-align : center;
                 </tr>
 
             </table>
+            <input type="hidden" name="memberId" value="${CurrentUser.memberId}">
             <input type="submit" value="Submit">
         </form></div>
     </body>

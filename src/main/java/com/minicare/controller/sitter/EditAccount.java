@@ -1,0 +1,57 @@
+package com.minicare.controller.sitter;
+
+import com.minicare.Exception.MiniCareException;
+import com.minicare.dto.SitterFormBean;
+import com.minicare.model.MemberModel;
+import com.minicare.model.SeekerModel;
+import com.minicare.model.SitterModel;
+import com.minicare.service.MemberService;
+import com.minicare.service.SeekerService;
+import com.minicare.service.SitterService;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class EditAccount extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        action(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        action(req,resp);
+    }
+
+    private void action(HttpServletRequest req, HttpServletResponse resp) {
+        try {
+            MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
+            SitterService sitterService = SitterService.getInstance();
+            MemberService memberService = MemberService.getInstance();
+            SitterModel sitterModel = sitterService.getSitter(memberModel.getMemberId());
+
+            req.setAttribute("SitterModel",sitterModel);
+            sitterService.populateSitterFormBean(req);
+            SitterFormBean sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
+            if(!sitterFormBean.validate(req)){
+                getServletContext().getRequestDispatcher("/jsp/editSitterAccount.jsp").forward(req,resp);
+            }else{
+                sitterModel = sitterService.editSitterAccount(req);
+                HttpSession session = req.getSession();
+                session.setAttribute("CurrentUser",sitterModel);
+                req.setAttribute("HomePageMessage","Account Successfully edited");
+                getServletContext().getRequestDispatcher("/jsp/sitter_homepage.jsp").forward(req,resp);
+            }
+        }catch (Exception e){
+            Logger logger = Logger.getLogger("EditAccount");
+            logger.log(Level.SEVERE,"Exception occurred",e);
+            throw new MiniCareException(e);
+        }
+    }
+}

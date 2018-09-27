@@ -22,10 +22,13 @@ float : right ;
 <html>
     <body>
         <h1>Home Page</h1>
-        <form action="/minicare-1.0-SNAPSHOT/sitter/showjob.do "><input type="submit" value="SHOW JOB"></form>
+        <p style="color:green" align="center">${HomePageMessage}</p>
         <form action="/minicare-1.0-SNAPSHOT/member/logout.do" class="right"><input type="submit" value="LOG OUT"></form>
-        <form action="/minicare-1.0-SNAPSHOT/sitter/closeaccount.do " class="right"><input type="submit" value="CLOSE ACCOUNT"></form>
+        <form action="/minicare-1.0-SNAPSHOT/sitter/showjob.do "><input type="submit" value="SHOW JOB"></form>
+        <form action="/minicare-1.0-SNAPSHOT/sitter/editaccountform.do " class="right"><input type="submit" value="EDIT ACCOUNT"></form>
         <form action="/minicare-1.0-SNAPSHOT/sitter/listjobapplications.do "><input type="submit" value="JOB APPLICATIONS"></form>
+        <form action="/minicare-1.0-SNAPSHOT/member/resetpasswordform.do" class="right"><input type="submit" value="RESET PASSWORD"></form>
+        <form action="/minicare-1.0-SNAPSHOT/sitter/closeaccount.do "><input type="submit" value="CLOSE ACCOUNT"></form>
 
     </body>
 </html>

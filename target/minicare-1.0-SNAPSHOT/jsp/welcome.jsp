@@ -2,10 +2,25 @@
 .error{
 color:red;
 }
+
+button {
+    background-color: #555555; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
 </style>
 
 <html>
+
     <body>
+
         <h1 align="center">Welcome to Mini-Care</h1>
         <br><br><br><br>
         <div align="center"><form action="/minicare-1.0-SNAPSHOT/visitor/login.do" method="post">
@@ -26,10 +41,15 @@ color:red;
 
         <br><br><br><br>
 
-
-        <div align="center"><h3> New User :</h3>
-        <a href="/minicare-1.0-SNAPSHOT/jsp/select_member.jsp"> Register Here</a>
+        <div align="center">
+           <form>
+               <button type="submit" name="seeker" formaction="/minicare-1.0-SNAPSHOT/jsp/sitter_register.jsp" >Register as Sitter </button>
+               <button type="submit" name="sitter" formaction="/minicare-1.0-SNAPSHOT/jsp/seeker_register.jsp" >Register as Seeker </button>
+            </form>
         </div>
+
+
     </body>
+
 </html>
 

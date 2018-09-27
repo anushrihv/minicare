@@ -1,8 +1,10 @@
 package com.minicare.service;
 
 import com.minicare.dao.MemberDao;
+import com.minicare.dto.PasswordHashHelper;
 import com.minicare.model.MemberModel;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Set;
@@ -31,5 +33,28 @@ public class MemberService {
         }
         else
             return true;
+    }
+
+    public boolean checkPassword(HttpServletRequest request) {
+        boolean status=true;
+        MemberModel memberModel = (MemberModel) request.getSession().getAttribute("CurrentUser");
+        String currentPasswordHash = PasswordHashHelper.get_SHA_256_SecurePassword(request.getParameter("oldpassword"));
+        request.setAttribute("OldPassword",request.getParameter("oldpassword"));
+        request.setAttribute("NewPassword",request.getParameter("newpassword"));
+        request.setAttribute("NewPassword2",request.getParameter("newpassword2"));
+        if(!memberModel.getPassword().equals(currentPasswordHash)){
+            request.setAttribute("OldPasswordError","Incorrect password");
+            status = false;
+        }if(!request.getParameter("newpassword").equals(request.getParameter("newpassword2"))){
+            request.setAttribute("NewPasswordError","Passwords don't match");
+            status = false;
+        }
+        return status;
+    }
+
+    public void updatePassword(int memberId , String newPassword) throws ClassNotFoundException, SQLException{
+        MemberDao memberDao = MemberDao.getInstance();
+        String newPasswordHash = PasswordHashHelper.get_SHA_256_SecurePassword(newPassword);
+        memberDao.updatePassword(memberId,newPasswordHash);
     }
 }

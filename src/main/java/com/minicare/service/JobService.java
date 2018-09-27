@@ -67,4 +67,9 @@ public class JobService {
         JobDao jobDao = JobDao.getInstance();
         return jobDao.getJobs();
     }
+
+    public void deleteJobsBySeeker(int seekerId) throws ClassNotFoundException,SQLException{
+        JobDao jobDao = JobDao.getInstance();
+        jobDao.closeJobByMemberId(seekerId);
+    }
 }

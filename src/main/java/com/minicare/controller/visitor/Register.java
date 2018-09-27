@@ -6,6 +6,8 @@ import com.minicare.dto.SitterFormBean;
 import com.minicare.model.SeekerModel;
 import com.minicare.model.SitterModel;
 import com.minicare.service.MemberService;
+import com.minicare.service.SeekerService;
+import com.minicare.service.SitterService;
 import com.minicare.service.VisitorService;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Register extends HttpServlet {
@@ -35,11 +38,13 @@ public class Register extends HttpServlet {
             SitterFormBean sitterFormBean;
             SeekerFormBean seekerFormBean;
             VisitorService visitorService = VisitorService.getInstance();
+            SeekerService seekerService = SeekerService.getInstance();
+            SitterService sitterService = SitterService.getInstance();
             String type = req.getParameter("type");
 
 
             if (type.equals("Sitter")) {
-                visitorService.populateSitterFormBean(req);
+                sitterService.populateSitterFormBean(req);
                 sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
                 MemberService memberService = MemberService.getInstance();
 
@@ -55,7 +60,7 @@ public class Register extends HttpServlet {
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/sitter/homepage.do");
                 }
             } else {
-                visitorService.populateSeekerFormBean(req);
+                seekerService.populateSeekerFormBean(req);
                 seekerFormBean = (SeekerFormBean) req.getAttribute("SeekerFormBean");
                 MemberService memberService = MemberService.getInstance();
 
@@ -72,8 +77,9 @@ public class Register extends HttpServlet {
                 }
             }
         }catch(Exception e){
-            String message = e.getMessage();
-            throw new MiniCareException(message);
+            Logger logger = Logger.getLogger("Register");
+            logger.log(Level.SEVERE,"Exception occurred",e);
+            throw new MiniCareException(e);
         }
     }
 }

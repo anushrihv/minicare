@@ -34,8 +34,6 @@ public class JobDao {
         MemberDao memberDao = MemberDao.getInstance();
         String email = memberModel.getEmail();
 
-//        ResultSet resultSet = memberDao.getMember(email);
-//        resultSet.next();
         int id = memberModel.getMemberId();
 
         String sql = "insert into job(Title,PostedBy,StartDateTime,EndDateTime,PayPerHour) values(?,?,?,?,?)";
@@ -54,10 +52,7 @@ public class JobDao {
         MemberDao memberDao = MemberDao.getInstance();
         String email = memberModel.getEmail();
         List<JobModel> jobModelList = new ArrayList<JobModel>();
-//
-//
-//        ResultSet resultSet = memberDao.getMember(email);
-//        resultSet.next();
+
         int id = memberModel.getMemberId();
 
         String sql = "select * from job where Status=? and PostedBy=?";
@@ -150,6 +145,18 @@ public class JobDao {
         preparedStatement.setDouble(4,Double.valueOf(jobModel.getPayPerHour()));
         preparedStatement.setInt(5,jobModel.getId());
         preparedStatement.executeUpdate();
+        connection.close();
+    }
+
+    public void closeJobByMemberId(int memberId) throws ClassNotFoundException,SQLException{
+        Connection connection = JDBCHelper.getConnection();
+        String sql = "update job SET Status=? where PostedBy=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,Status.INACTIVE.name());
+        preparedStatement.setInt(2,memberId);
+        preparedStatement.executeUpdate();
+
+        preparedStatement.close();
         connection.close();
     }
 }

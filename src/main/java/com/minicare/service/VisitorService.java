@@ -37,21 +37,6 @@ public class VisitorService{
         return visitorService;
     }
 
-    public void populateSeekerFormBean(HttpServletRequest req) {
-
-        seekerFormBean = new SeekerFormBean();
-        seekerFormBean.setFirstname(req.getParameter("firstname"));
-        seekerFormBean.setLastname(req.getParameter("lastname"));
-        seekerFormBean.setPhonenumber(req.getParameter("phonenumber"));
-        seekerFormBean.setEmail(req.getParameter("email"));
-        seekerFormBean.setAddress(req.getParameter("address"));
-        seekerFormBean.setPassword(req.getParameter("password"));
-        seekerFormBean.setPassword2(req.getParameter("password2"));
-        seekerFormBean.setSpouseName(req.getParameter("spousename"));
-        seekerFormBean.setNumberOfChildren(req.getParameter("numberofchildren"));
-        req.setAttribute("SeekerFormBean",seekerFormBean);
-    }
-
     public void populateSitterFormBean(HttpServletRequest req)  {
 
         sitterFormBean = new SitterFormBean();
@@ -80,7 +65,7 @@ public class VisitorService{
         SeekerModel seekerModel = (SeekerModel) req.getAttribute("SeekerModel");
         seekerDao = SeekerDao.getInstance();
         seekerDao.insertSeeker(seekerModel);
-        populateModelFromDb(sitterModel.getEmail(),session);
+        populateModelFromDb(seekerModel.getEmail(),session);
     }
 
     private void populateSitterModel(HttpServletRequest req) {
