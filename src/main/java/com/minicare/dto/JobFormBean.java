@@ -3,6 +3,8 @@ package com.minicare.dto;
 import com.minicare.model.Status;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
+import java.util.Calendar;
 
 
 public class JobFormBean implements ValidationForm {
@@ -76,7 +78,7 @@ public class JobFormBean implements ValidationForm {
         if("".equals(jobTitle)){
             req.setAttribute("JobTitleError","Job Title has to be entered");
             status=false;
-        }else if(!(jobTitle.trim().matches("^[A-Za-z]+$"))){
+        }else if(!(jobTitle.trim().matches("^[A-Za-z\\s]+$"))){
             req.setAttribute("JobTitleError","Job Title must have alphabets only");
             status=false;
         }
@@ -84,17 +86,48 @@ public class JobFormBean implements ValidationForm {
         if("".equals(startDateTime)){
             req.setAttribute("StartDateTimeError","Start DateTime has to be entered");
             status=false;
-        }else if(!startDateTime.trim().matches("[0-9]{4}[-][0-9]{2}[-][0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}")){
+        }else if(!startDateTime.trim().matches("[0-9]{4}[-][0-9]{2}[-][0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}([\\.][0-9])*")){
             req.setAttribute("StartDateTimeError","Invalid format.Please follow the format YYYY-MM-DD HH:MM:SS");
             status=false;
+        }else{
+            Timestamp currentDateTime = new Timestamp(System.currentTimeMillis());
+            Timestamp timestamp = null;
+            try {
+                timestamp = Timestamp.valueOf(startDateTime);
+
+                long milliseconds = timestamp.getTime() - currentDateTime.getTime();
+                if(milliseconds<0){
+                    req.setAttribute("StartDateTimeError","Invalid input . Start Date Time must be greater than current Date Time");
+                    status=false;
+                }
+            }catch (Exception e){
+                req.setAttribute("StartDateTimeError","Invalid input");
+                status=false;
+            }
         }
 
         if("".equals(endDateTime)){
             req.setAttribute("EndDateTimeError","End DateTime has to be entered");
             status=false;
-        }else if(!endDateTime.trim().matches("[0-9]{4}[-][0-9]{2}[-][0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}")){
+        }else if(!endDateTime.trim().matches("[0-9]{4}[-][0-9]{2}[-][0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}([\\.][0-9])*")){
             req.setAttribute("EndDateTimeError","Invalid format.Please follow the format YYYY-MM-DD HH:MM:SS");
             status=false;
+        }else{
+            Timestamp start = null;
+            Timestamp end = null;
+            try{
+                start = Timestamp.valueOf(startDateTime);
+                end = Timestamp.valueOf(endDateTime);
+
+                long milliseconds = end.getTime() - start.getTime();
+                if(milliseconds<0){
+                    req.setAttribute("EndDateTimeError","Invalid input . End Date Time must be greater than Start Date Time");
+                    status=false;
+                }
+            }catch (Exception e){
+                req.setAttribute("EndDateTimeError","Invalid input");
+                status = false;
+            }
         }
 
         if("".equals(payPerHour)){

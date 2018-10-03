@@ -41,9 +41,7 @@ public class MemberDao {
             preparedStatement.setString(5, memberModel.getType().name());
             preparedStatement.setString(6, memberModel.getAddress());
             preparedStatement.setString(7, memberModel.getPassword());
-
             preparedStatement.executeUpdate();
-
 
     }
 
@@ -76,6 +74,9 @@ public class MemberDao {
                 break;
             }
         }
+        resultSet.close();
+        preparedStatement.close();
+        connection.close();
         return memberModelSet;
     }
 
@@ -93,15 +94,14 @@ public class MemberDao {
 
     public void editMember(MemberModel memberModel) throws ClassNotFoundException,SQLException{
         Connection connection = JDBCHelper.getConnection();
-        String sql ="update member SET FirstName=? , LastName=? , PhoneNumber=? , EmailAddress=? , Address=? " +
+        String sql ="update member SET FirstName=? , LastName=? , PhoneNumber=?  , Address=? " +
                 "where Id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,memberModel.getFirstName());
         preparedStatement.setString(2,memberModel.getLastName());
         preparedStatement.setLong(3,memberModel.getPhoneNumber());
-        preparedStatement.setString(4,memberModel.getEmail());
-        preparedStatement.setString(5,memberModel.getAddress());
-        preparedStatement.setInt(6,memberModel.getMemberId());
+        preparedStatement.setString(4,memberModel.getAddress());
+        preparedStatement.setInt(5,memberModel.getMemberId());
         preparedStatement.executeUpdate();
 
         preparedStatement.close();
@@ -115,5 +115,35 @@ public class MemberDao {
         preparedStatement.setString(1,newPassword);
         preparedStatement.setInt(2,memberId);
         preparedStatement.executeUpdate();
+
+        preparedStatement.close();
+        connection.close();
+    }
+
+    public Set<MemberModel> getAllMembers() throws ClassNotFoundException,SQLException{
+        Set<MemberModel> memberModelSet = new HashSet<>();
+        Connection connection = JDBCHelper.getConnection();
+        String sql = "select * from member where status=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,Status.ACTIVE.name());
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(true){
+            boolean contains = resultSet.next();
+            if(contains){
+                MemberModel memberModel = new MemberModel();
+                memberModel.setMemberId(resultSet.getInt("Id"));
+                memberModel.setFirstName(resultSet.getString("FirstName"));
+                memberModel.setLastName(resultSet.getString("LastName"));
+                memberModel.setPhoneNumber(resultSet.getLong("PhoneNumber"));
+                memberModel.setEmail(resultSet.getString("EmailAddress"));
+                memberModel.setType(Type.valueOf(resultSet.getString("Type")));
+                memberModel.setAddress(resultSet.getString("Address"));
+                memberModel.setStatus(Status.ACTIVE);
+                memberModelSet.add(memberModel);
+            }else{
+                break;
+            }
+        }
+        return memberModelSet;
     }
 }

@@ -29,9 +29,9 @@ public class EditAccount extends HttpServlet {
 
     private void action(HttpServletRequest req, HttpServletResponse resp) {
         try{
-            MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
+            HttpSession session = req.getSession(false);
+            MemberModel memberModel = (MemberModel) session.getAttribute("CurrentUser");
             SeekerService seekerService = SeekerService.getInstance();
-            MemberService memberService = MemberService.getInstance();
             SeekerModel seekerModel = seekerService.getSeeker(memberModel.getMemberId());
 
             req.setAttribute("SeekerModel",seekerModel);
@@ -41,7 +41,6 @@ public class EditAccount extends HttpServlet {
                 getServletContext().getRequestDispatcher("/jsp/editSeekerAccount.jsp").forward(req,resp);
             }else{
                 seekerModel = seekerService.editSeekerAccount(req);
-                HttpSession session = req.getSession();
                 session.setAttribute("CurrentUser",seekerModel);
                 req.setAttribute("HomePageMessage","Account Successfully edited");
                 getServletContext().getRequestDispatcher("/jsp/seeker_homepage.jsp").forward(req,resp);

@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ListJob extends HttpServlet {
     @Override
@@ -29,7 +31,9 @@ public class ListJob extends HttpServlet {
             req.setAttribute("JobList",jobModelList);
             getServletContext().getRequestDispatcher("/jsp/listJobs.jsp").forward(req, resp);
         }catch(Exception e){
-            throw new MiniCareException(e.getMessage());
+            Logger logger = Logger.getLogger("ListJob");
+            logger.log(Level.SEVERE,"Exception occurred",e);
+            throw new MiniCareException(e);
         }
     }
 }

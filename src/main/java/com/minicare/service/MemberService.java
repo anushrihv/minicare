@@ -6,6 +6,7 @@ import com.minicare.model.MemberModel;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -56,5 +57,21 @@ public class MemberService {
         MemberDao memberDao = MemberDao.getInstance();
         String newPasswordHash = PasswordHashHelper.get_SHA_256_SecurePassword(newPassword);
         memberDao.updatePassword(memberId,newPasswordHash);
+    }
+
+    public Set<MemberModel> searchMember(String email) throws ClassNotFoundException, SQLException{
+        MemberDao memberDao = MemberDao.getInstance();
+        Set<MemberModel> memberModelSet = memberDao.getAllMembers();
+        Set<MemberModel> searchResultSet = new HashSet<>();
+        Iterator<MemberModel> iterator = memberModelSet.iterator();
+        MemberModel memberModel;
+        while(iterator.hasNext()){
+            memberModel = iterator.next();
+            String dbemail = memberModel.getEmail();
+            if(dbemail.contains(email)){
+                searchResultSet.add(memberModel);
+            }
+        }
+        return searchResultSet;
     }
 }

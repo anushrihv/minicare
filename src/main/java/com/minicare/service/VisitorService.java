@@ -69,7 +69,7 @@ public class VisitorService{
     }
 
     private void populateSitterModel(HttpServletRequest req) {
-
+        sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
         sitterModel = new SitterModel();
         long phoneNumber = Long.parseLong(sitterFormBean.getPhonenumber());
         int yearsOfExperience = Integer.parseInt(sitterFormBean.getYearsOfExperience());
@@ -90,6 +90,7 @@ public class VisitorService{
     }
 
     private void populateSeekerModel(HttpServletRequest req) {
+        seekerFormBean = (SeekerFormBean) req.getAttribute("SeekerFormBean");
         seekerModel = new SeekerModel();
         int numberOfChildren;
         long phoneNumber = Long.parseLong(seekerFormBean.getPhonenumber());

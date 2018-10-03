@@ -3,6 +3,7 @@ package com.minicare.controller.seeker;
 import com.minicare.Exception.MiniCareException;
 import com.minicare.dto.JobFormBean;
 import com.minicare.model.JobModel;
+import com.minicare.model.MemberModel;
 import com.minicare.service.JobService;
 
 import javax.servlet.ServletException;
@@ -31,13 +32,15 @@ public class UpdateJob extends HttpServlet {
             JobService jobService = JobService.getInstance();
             JobModel jobModel = jobService.getJobByJobId(jobId);
             req.setAttribute("JobModel",jobModel);
+            MemberModel memberModel = (MemberModel) req.getSession(false).getAttribute("CurrentUser");
             jobService.populateJobFormBean(req);
             JobFormBean jobFormBean = (JobFormBean) req.getAttribute("JobFormBean");
+
             if(!jobFormBean.validate(req)){
                 getServletContext().getRequestDispatcher("/jsp/editJob.jsp").forward(req,resp);
             }else {
                 jobService.updateJob(req);
-                List<JobModel> jobModelList = jobService.getJobs();
+                List<JobModel> jobModelList = jobService.getJobsById(memberModel);
                 req.setAttribute("JobList", jobModelList);
                 getServletContext().getRequestDispatcher("/jsp/listJobs.jsp").forward(req, resp);
             }

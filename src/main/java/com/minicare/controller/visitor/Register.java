@@ -56,7 +56,6 @@ public class Register extends HttpServlet {
                 } else {
                     HttpSession session = req.getSession();
                     visitorService.storeSitterDetails(req,session);
-                    session.setAttribute("CurrentUser",(SitterModel)req.getAttribute("SitterModel"));
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/sitter/homepage.do");
                 }
             } else {
@@ -72,7 +71,6 @@ public class Register extends HttpServlet {
                 } else {
                     HttpSession session = req.getSession();
                     visitorService.storeSeekerDetails(req,session);
-                    session.setAttribute("CurrentUser",(SeekerModel)req.getAttribute("SeekerModel"));
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/seeker/homepage.do");
                 }
             }

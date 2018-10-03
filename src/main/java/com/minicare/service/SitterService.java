@@ -8,6 +8,7 @@ import com.minicare.dto.SitterFormBean;
 import com.minicare.model.MemberModel;
 import com.minicare.model.SeekerModel;
 import com.minicare.model.SitterModel;
+import com.minicare.model.Type;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -82,9 +83,11 @@ public class SitterService {
         sitterModel.setLastName(request.getParameter("lastname"));
         sitterModel.setPhoneNumber(Long.parseLong(request.getParameter("phonenumber")));
         sitterModel.setEmail(request.getParameter("email"));
+        sitterModel.setType(Type.SITTER);
         sitterModel.setAddress(request.getParameter("address"));
         sitterModel.setYearsOfExperience(Integer.parseInt(request.getParameter("yearsofexperience")));
         sitterModel.setExpectedPay(Double.parseDouble(request.getParameter("expectedpay")));
+        sitterModel.setPassword(request.getParameter("password"));
         return sitterModel;
     }
 

@@ -93,7 +93,7 @@ public class MemberFormBean implements ValidationForm {
             req.setAttribute("FirstNameError","First Name has to be entered");
             status=false;
         }else if(!(firstname.trim().matches("^[A-Za-z]+$"))){
-            req.setAttribute("FirstNameError","First Name must have alphabets only");
+            req.setAttribute("FirstNameError","Invalid input");
             status=false;
         }
 
@@ -101,7 +101,7 @@ public class MemberFormBean implements ValidationForm {
             req.setAttribute("LastNameError","Last Name has to be entered");
             status=false;
         }else if(!(lastname.trim().matches("^[A-Za-z]+$"))){
-            req.setAttribute("LastNameError","Last Name must have alphabets only");
+            req.setAttribute("LastNameError","Invalid input");
             status=false;
         }
 

@@ -2,6 +2,7 @@ package com.minicare.controller.seeker;
 
 import com.minicare.Exception.MiniCareException;
 import com.minicare.model.JobModel;
+import com.minicare.model.MemberModel;
 import com.minicare.service.JobService;
 
 import javax.servlet.ServletException;
@@ -28,7 +29,8 @@ public class CloseJob extends HttpServlet {
         try {
             int jobId = Integer.parseInt(req.getParameter("JobId"));
             JobService jobService = JobService.getInstance();
-            List<JobModel> jobModelList = jobService.closeJob(jobId);
+            MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
+            List<JobModel> jobModelList = jobService.closeJob(jobId,memberModel);
             req.setAttribute("JobList",jobModelList);
             getServletContext().getRequestDispatcher("/jsp/listJobs.jsp").forward(req,resp);
         }catch (Exception e){

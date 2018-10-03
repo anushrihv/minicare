@@ -29,7 +29,7 @@ float : right ;
         <form action="/minicare-1.0-SNAPSHOT/seeker/listjob.do "><input type="submit" value="LIST JOBS"></form>
         <form action="/minicare-1.0-SNAPSHOT/member/resetpasswordform.do" class="right"><input type="submit" value="RESET PASSWORD"></form>
         <form action="/minicare-1.0-SNAPSHOT/seeker/closeaccount.do" ><input type="submit" value="CLOSE ACCOUNT"></form>
-
+        <form action="/minicare-1.0-SNAPSHOT/member/searchform.do" class="right"><input type="submit" value="SEARCH MEMBER"></form>
     </body>
 </html>
 

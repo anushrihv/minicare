@@ -44,11 +44,7 @@
                     <td> <input type="text" name="phonenumber" value="${SitterFormBean.phonenumber}"></td>
                     <td class="error"> ${PhoneNumberError} </td>
                 </tr>
-                <tr>
-                    <td> Email : </td>
-                    <td> <input type="text" name="email" value="${SitterFormBean.email}"> </td>
-                    <td class="error"> ${EmailError} </td>
-                </tr>
+
                 <tr>
                     <td> Address : </td>
                     <td> <textarea rows="4" cols="30" name="address" >${SitterFormBean.address.trim()}</textarea> </td>
@@ -66,6 +62,9 @@
                 </tr>
                 <input type="hidden" name="type" value="Sitter" > </td>
                 <input type="hidden" name="memberId" value="${CurrentUser.memberId}">
+                <input type="hidden" name="email" value="${CurrentUser.email}">
+                <input type="hidden" name="password" value="${CurrentUser.password}">
+                <input type="hidden" name="password2" value="${CurrentUser.password}">
             </table>
             <input type="submit" value="Submit">
         </form></div>

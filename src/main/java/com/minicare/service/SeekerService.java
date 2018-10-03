@@ -9,6 +9,7 @@ import com.minicare.dto.SeekerFormBean;
 import com.minicare.model.JobModel;
 import com.minicare.model.MemberModel;
 import com.minicare.model.SeekerModel;
+import com.minicare.model.Type;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -56,7 +57,7 @@ public class SeekerService {
         jobModel = new JobModel();
         Timestamp startDateTime = Timestamp.valueOf(jobFormBean.getStartDateTime());
         Timestamp endDateTime = Timestamp.valueOf(jobFormBean.getEndDateTime());
-        int payPerHour = Integer.parseInt(jobFormBean.getPayPerHour());
+        double payPerHour = Double.parseDouble(jobFormBean.getPayPerHour());
 
         jobModel.setJobTitle(jobFormBean.getJobTitle());
         jobModel.setStartDateTime(startDateTime);
@@ -82,6 +83,7 @@ public class SeekerService {
     public void populateSeekerFormBean(HttpServletRequest req) {
 
         SeekerFormBean seekerFormBean = new SeekerFormBean();
+        seekerFormBean.setMemberId(req.getParameter("memberId"));
         seekerFormBean.setFirstname(req.getParameter("firstname"));
         seekerFormBean.setLastname(req.getParameter("lastname"));
         seekerFormBean.setPhonenumber(req.getParameter("phonenumber"));
@@ -91,6 +93,7 @@ public class SeekerService {
         seekerFormBean.setPassword2(req.getParameter("password2"));
         seekerFormBean.setSpouseName(req.getParameter("spousename"));
         seekerFormBean.setNumberOfChildren(req.getParameter("numberofchildren"));
+        seekerFormBean.setType(Type.SEEKER.name());
         req.setAttribute("SeekerFormBean",seekerFormBean);
     }
 
@@ -125,9 +128,11 @@ public class SeekerService {
         seekerModel.setLastName(request.getParameter("lastname"));
         seekerModel.setPhoneNumber(Long.parseLong(request.getParameter("phonenumber")));
         seekerModel.setEmail(request.getParameter("email"));
+        seekerModel.setType(Type.SEEKER);
         seekerModel.setAddress(request.getParameter("address"));
         seekerModel.setNumberOfChildren(Integer.parseInt(request.getParameter("numberofchildren")));
         seekerModel.setSpouseName(request.getParameter("spousename"));
+        seekerModel.setPassword(request.getParameter("password"));
         return seekerModel;
     }
 

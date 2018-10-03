@@ -2,6 +2,7 @@ package com.minicare.controller.sitter;
 
 import com.minicare.Exception.MiniCareException;
 import com.minicare.model.JobModel;
+import com.minicare.model.MemberModel;
 import com.minicare.service.JobService;
 import com.minicare.service.SitterService;
 
@@ -26,7 +27,8 @@ public class ShowJob extends HttpServlet {
     private void action(HttpServletRequest req, HttpServletResponse resp) {
         JobService jobService = JobService.getInstance();
         try{
-            List<JobModel> jobModelList = jobService.getJobs();
+            MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
+            List<JobModel> jobModelList = jobService.getJobs(memberModel);
             req.setAttribute("JobList",jobModelList);
             getServletContext().getRequestDispatcher("/jsp/listActiveJobs.jsp").forward(req, resp);
         }catch (Exception e){

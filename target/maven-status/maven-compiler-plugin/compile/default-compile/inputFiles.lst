@@ -27,6 +27,8 @@ C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\sit
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\dao\JDBCHelper.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\sitter\ShowJob.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\seeker\ListApplications.java
+C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\member\SearchMember.java
+C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\filter\LoginFilter.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\seeker\UpdateJob.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\sitter\DeleteJobApplication.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\junk.java
@@ -36,6 +38,7 @@ C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\see
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\dao\MemberDao.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\dao\JobApplicationDao.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\Exception\MiniCareException.java
+C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\filter\AuthorizationFilter.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\dto\PasswordHashHelper.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\dto\SeekerFormBean.java
 C:\Users\Anushri\IdeaProjects\minicare\src\main\java\com\minicare\controller\member\Logout.java

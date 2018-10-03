@@ -41,7 +41,7 @@ public class ResetPassword extends HttpServlet {
                     memberModel.setPassword(newPasswordHash);
                     req.getSession().setAttribute("CurrentUser",memberModel);
                     req.setAttribute("HomePageMessage","Password successfully updated");
-                    if(memberModel.getType().equals(Type.SITTER.name())){
+                    if(memberModel.getType().name().equals(Type.SITTER.name())){
                         getServletContext().getRequestDispatcher("/jsp/sitter_homepage.jsp").forward(req,resp);
                     }else{
                         getServletContext().getRequestDispatcher("/jsp/seeker_homepage.jsp").forward(req,resp);

@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class JobApplicationDao {
     static JobApplicationDao jobApplicationDao;
@@ -113,6 +114,25 @@ public class JobApplicationDao {
         preparedStatement.close();
         connection.close();
         return jobApplicationDTOList;
+    }
+
+    public JobApplicationDTO getJobApplication(int jobId,int memberId) throws SQLException,ClassNotFoundException{
+        Connection connection = JDBCHelper.getConnection();
+        String sql = "select * from jobapplication where JobId=? and MemberId=? and status=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,jobId);
+        preparedStatement.setInt(2,memberId);
+        preparedStatement.setString(3,Status.ACTIVE.name());
+        ResultSet resultSet = preparedStatement.executeQuery();
+        JobApplicationDTO jobApplicationDTO = null;
+        boolean contains = resultSet.next();
+            if(contains) {
+                jobApplicationDTO = new JobApplicationDTO();
+                jobApplicationDTO.setJobApplicationId(resultSet.getInt("Id"));
+                jobApplicationDTO.setJobId(resultSet.getInt("JobId"));
+                jobApplicationDTO.setMemberId(resultSet.getInt("MemberId"));
+            }
+        return jobApplicationDTO;
     }
 
     public void closeJobApplicationByJobId(int jobId) throws SQLException,ClassNotFoundException{

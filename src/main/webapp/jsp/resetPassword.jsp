@@ -34,6 +34,7 @@ text-align : center;
                 </tr>
                 <tr>
                 <td><input type="submit" value="Reset Password"></td>
+
                 </tr>
             </table>
 

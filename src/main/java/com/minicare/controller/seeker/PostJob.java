@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PostJob extends HttpServlet {
     private SeekerService seekerService;
@@ -50,7 +52,9 @@ public class PostJob extends HttpServlet {
                 }
             }
         }catch (Exception e){
-            throw new MiniCareException(e.getMessage());
+            Logger logger = Logger.getLogger("PostJob");
+            logger.log(Level.SEVERE,"Exception occurred",e);
+            throw new MiniCareException(e);
         }
     }
 }

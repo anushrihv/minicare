@@ -28,8 +28,6 @@ public class ApplyJob extends HttpServlet{
             int id = Integer.parseInt(req.getParameter("JobId"));
             req.getSession(false).setAttribute("JobId",Integer.valueOf(id));
             getServletContext().getRequestDispatcher("/jsp/applyJob.jsp").forward(req, resp);
-
-
         }catch (Exception e){
             Logger logger = Logger.getLogger("ApplyJob");
             logger.log(Level.SEVERE,"Exception occurred",e);

@@ -1,4 +1,16 @@
 <style>
+
+    input[type=submit] {
+        background-color: #555555; /*black*/
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+
     .error{
         color:red;
     }
@@ -56,13 +68,14 @@
                     <td class="error"> ${SpouseNameError} </td>
                 </tr>
                 <tr>
-                     <td> Seeker : </td>
-                     <td> <input type="radio" name="type" value="Seeker" checked > </td>
+
+                     <td> <input type="hidden" name="type" value="Seeker" checked > </td>
 
                 </tr>
             </table>
             <input type="submit" value="Submit">
 
         </form></div>
+        <div align="center"><form action="/minicare-1.0-SNAPSHOT/" > <input type="submit" value="BACK" > </form></div>
     </body>
 </html>

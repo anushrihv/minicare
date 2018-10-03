@@ -31,8 +31,6 @@ public class JobDao {
 
     public void storeJob(JobModel jobModel, MemberModel memberModel) throws ClassNotFoundException, SQLException {
         Connection connection = JDBCHelper.getConnection();
-        MemberDao memberDao = MemberDao.getInstance();
-        String email = memberModel.getEmail();
 
         int id = memberModel.getMemberId();
 
@@ -49,8 +47,6 @@ public class JobDao {
 
     public List<JobModel> getJobsById(MemberModel memberModel) throws ClassNotFoundException,SQLException{
         Connection connection = JDBCHelper.getConnection();
-        MemberDao memberDao = MemberDao.getInstance();
-        String email = memberModel.getEmail();
         List<JobModel> jobModelList = new ArrayList<JobModel>();
 
         int id = memberModel.getMemberId();

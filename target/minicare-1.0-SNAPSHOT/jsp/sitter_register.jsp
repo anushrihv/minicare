@@ -1,8 +1,19 @@
 <style>
-.error{
-color:red;
-}
 
+    input[type=submit] {
+            background-color: #555555; /*black*/
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+        .error{
+        color:red;
+        }
 
 </style>
 
@@ -57,12 +68,13 @@ color:red;
                     <td class="error"> ${ExpectedPayError} </td>
                 </tr>
                 <tr>
-                     <td>Sitter :</td>
-                     <td> <input type="radio" name="type" value="Sitter" checked > </td>
+
+                     <td> <input type="hidden" name="type" value="Sitter" checked > </td>
                 </tr>
             </table>
             <input type="submit" value="Submit">
 
         </form></div>
+        <div align="center"><form action="/minicare-1.0-SNAPSHOT/" > <input type="submit" value="BACK" > </form></div>
     </body>
 </html>

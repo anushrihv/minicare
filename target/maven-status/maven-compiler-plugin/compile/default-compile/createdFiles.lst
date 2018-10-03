@@ -7,8 +7,10 @@ com\minicare\model\SeekerModel.class
 com\minicare\dto\PasswordHashHelper.class
 com\minicare\service\JobService.class
 com\minicare\controller\sitter\ListJobApplication.class
+com\minicare\filter\AuthorizationFilter.class
 com\minicare\model\JobApplicationModel.class
 com\minicare\controller\member\Logout.class
+com\minicare\controller\member\SearchMember.class
 com\minicare\controller\seeker\EditAccount.class
 com\minicare\controller\visitor\Login.class
 com\minicare\dto\SitterFormBean.class
@@ -40,6 +42,7 @@ com\minicare\controller\visitor\Register.class
 com\minicare\controller\seeker\ListJob.class
 com\minicare\dao\JobApplicationDao.class
 com\minicare\controller\member\ResetPassword.class
+com\minicare\filter\LoginFilter.class
 com\minicare\model\SitterModel.class
 com\minicare\dto\JobApplicationDTO.class
 com\minicare\dto\SeekerFormBean.class

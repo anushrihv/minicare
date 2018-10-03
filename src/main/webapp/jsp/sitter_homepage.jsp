@@ -28,7 +28,8 @@ float : right ;
         <form action="/minicare-1.0-SNAPSHOT/sitter/editaccountform.do " class="right"><input type="submit" value="EDIT ACCOUNT"></form>
         <form action="/minicare-1.0-SNAPSHOT/sitter/listjobapplications.do "><input type="submit" value="JOB APPLICATIONS"></form>
         <form action="/minicare-1.0-SNAPSHOT/member/resetpasswordform.do" class="right"><input type="submit" value="RESET PASSWORD"></form>
-        <form action="/minicare-1.0-SNAPSHOT/sitter/closeaccount.do "><input type="submit" value="CLOSE ACCOUNT"></form>
+        <form action="/minicare-1.0-SNAPSHOT/sitter/closeaccount.do"><input type="submit" value="CLOSE ACCOUNT"></form>
+        <form action="/minicare-1.0-SNAPSHOT/member/searchform.do" class="right"><input type="submit" value="SEARCH MEMBER"></form>
 
     </body>
 </html>

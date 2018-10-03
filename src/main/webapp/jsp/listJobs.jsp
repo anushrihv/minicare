@@ -30,6 +30,11 @@ text-align:center
     <body>
         <h1>LIST OF JOBS</h1>
         <div align="right"><form action="/minicare-1.0-SNAPSHOT/jsp/seeker_homepage.jsp" > <input type="submit" value="HOME" > </form></div>
+        <c:choose>
+        <c:when test="${JobList.size()==0}">
+        <h2 align="center"> NO JOBS TO DISPLAY </h2>
+        </c:when>
+        <c:otherwise>
         <table>
             <tr>
                 <th> JOB TITLE </th>
@@ -66,5 +71,7 @@ text-align:center
             </tr>
             </c:forEach>
         </table>
+        </c:otherwise>
+        </c:choose>
     </body>
 </html>
