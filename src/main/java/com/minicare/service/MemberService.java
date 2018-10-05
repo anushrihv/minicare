@@ -4,6 +4,7 @@ import com.minicare.dao.MemberDao;
 import com.minicare.dto.PasswordHashHelper;
 import com.minicare.model.MemberModel;
 
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.util.HashSet;
@@ -53,13 +54,13 @@ public class MemberService {
         return status;
     }
 
-    public void updatePassword(int memberId , String newPassword) throws ClassNotFoundException, SQLException{
+    public void updatePassword(int memberId , String newPassword) throws NamingException, SQLException{
         MemberDao memberDao = MemberDao.getInstance();
         String newPasswordHash = PasswordHashHelper.get_SHA_256_SecurePassword(newPassword);
         memberDao.updatePassword(memberId,newPasswordHash);
     }
 
-    public Set<MemberModel> searchMember(String email) throws ClassNotFoundException, SQLException{
+    public Set<MemberModel> searchMember(String email) throws NamingException, SQLException{
         MemberDao memberDao = MemberDao.getInstance();
         Set<MemberModel> memberModelSet = memberDao.getAllMembers();
         Set<MemberModel> searchResultSet = new HashSet<>();

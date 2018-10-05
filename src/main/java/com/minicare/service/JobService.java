@@ -5,6 +5,8 @@ import com.minicare.dao.JobDao;
 import com.minicare.dto.JobFormBean;
 import com.minicare.model.JobModel;
 import com.minicare.model.MemberModel;
+
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -49,7 +51,7 @@ public class JobService {
         request.setAttribute("JobModel",jobModel);
     }
 
-    public List<JobModel> closeJob(int jobId,MemberModel memberModel) throws SQLException,ClassNotFoundException {
+    public List<JobModel> closeJob(int jobId,MemberModel memberModel) throws SQLException,ClassNotFoundException,NamingException {
         JobApplicationDao jobApplicationDao = JobApplicationDao.getInstance();
         JobDao jobDao = JobDao.getInstance();
 
@@ -107,7 +109,7 @@ public class JobService {
         jobDao.updateJob(jobModel);
     }
 
-    public List<JobModel> getJobs(MemberModel memberModel) throws ClassNotFoundException,SQLException{
+    public List<JobModel> getJobs(MemberModel memberModel) throws ClassNotFoundException,SQLException, NamingException {
         JobDao jobDao = JobDao.getInstance();
         JobApplicationDao jobApplicationDao = JobApplicationDao.getInstance();
         List<JobModel> jobModelList = jobDao.getJobs();

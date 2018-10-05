@@ -10,8 +10,8 @@ public class JDBCHelper {
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/test3","root","anushri");
-
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test3","root","anushri");
+        return connection;
     }
 
     public static void closeConnection() throws SQLException{

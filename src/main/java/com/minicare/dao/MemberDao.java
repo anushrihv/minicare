@@ -5,6 +5,7 @@ import com.minicare.model.SeekerModel;
 import com.minicare.model.Status;
 import com.minicare.model.Type;
 
+import javax.naming.NamingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -108,8 +109,8 @@ public class MemberDao {
         connection.close();
     }
 
-    public void updatePassword(int memberId , String newPassword)  throws ClassNotFoundException,SQLException{
-        Connection connection = JDBCHelper.getConnection();
+    public void updatePassword(int memberId , String newPassword)  throws NamingException,SQLException{
+        Connection connection = JNDIHelper.getJNDIConnection();
         String sql = "update member SET password = ? where Id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,newPassword);
@@ -120,9 +121,9 @@ public class MemberDao {
         connection.close();
     }
 
-    public Set<MemberModel> getAllMembers() throws ClassNotFoundException,SQLException{
+    public Set<MemberModel> getAllMembers() throws NamingException,SQLException{
         Set<MemberModel> memberModelSet = new HashSet<>();
-        Connection connection = JDBCHelper.getConnection();
+        Connection connection = JNDIHelper.getJNDIConnection();
         String sql = "select * from member where status=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,Status.ACTIVE.name());

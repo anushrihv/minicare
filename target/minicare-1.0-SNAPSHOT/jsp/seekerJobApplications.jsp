@@ -35,7 +35,7 @@ text-align:center
         </div>
         <c:choose>
         <c:when test="${JobApplicationList.size()==0}">
-        <h2 align="center"> NO JOBS TO DISPLAY </h2>
+        <h2 align="center"> NO APPLICATIONS TO DISPLAY </h2>
         </c:when>
         <c:otherwise>
         <table>
