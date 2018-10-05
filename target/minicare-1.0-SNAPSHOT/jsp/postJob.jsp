@@ -21,26 +21,28 @@ text-align : center;
     <body>
         <h1>POST JOB</h1>
         <div align="right"><form action="/minicare-1.0-SNAPSHOT/jsp/seeker_homepage.jsp" class="button"> <input type="submit" value="HOME" > </form></div>
-        <div align ="center"><form action="/minicare-1.0-SNAPSHOT/seeker/postjob.do">
+        <div align ="center"><form action="/minicare-1.0-SNAPSHOT/seeker/postjob.do" mathod="post">
             <table>
                 <tr>
                     <td>Job Title : </td>
-                    <td> <input type="text" name="jobtitle" value="${JobFormBean.jobTitle}"> </td>
+                    <td> <input type="text" name="jobtitle" value="${JobFormBean.jobTitle}" required> </td>
                     <td class="error"> ${JobTitleError} </td>
                 </tr>
                 <tr>
                     <td>Start Date Time :</td>
-                    <td> <input type="text" name="startdatetime" placeholder="YYYY-MM-DD HH:MM:SS" value="${JobFormBean.startDateTime}"> </td>
+                    <td> <input type="date" name="startdate" value="${JobFormBean.startDate}" required> </td>
+                    <td> <input type="time" name="starttime" value="${JobFormBean.startTime}" required> </td>
                     <td class="error"> ${StartDateTimeError} </td>
                 </tr>
                 <tr>
                     <td>End Date Time :</td>
-                    <td> <input type="text" name="enddatetime" placeholder="YYYY-MM-DD HH:MM:SS" value="${JobFormBean.endDateTime}"> </td>
+                    <td> <input type="date" name="enddate" value="${JobFormBean.endDate}" required> </td>
+                    <td> <input type="time" name="endtime" value="${JobFormBean.endTime}" required> </td>
                     <td class="error"> ${EndDateTimeError} </td>
                 </tr>
                 <tr>
                     <td>Pay Per Hour :</td>
-                    <td> <input type="text" name="payperhour" value="${JobFormBean.payPerHour}"> </td>
+                    <td> <input type="text" name="payperhour" value="${JobFormBean.payPerHour}" required> </td>
                     <td class="error"> ${PayPerHourError} </td>
                 </tr>
 

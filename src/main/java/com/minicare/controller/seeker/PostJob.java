@@ -3,6 +3,8 @@ package com.minicare.controller.seeker;
 import com.minicare.Exception.MiniCareException;
 import com.minicare.dto.JobFormBean;
 import com.minicare.model.JobModel;
+import com.minicare.model.MemberModel;
+import com.minicare.service.JobService;
 import com.minicare.service.SeekerService;
 
 import javax.servlet.ServletException;
@@ -17,7 +19,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PostJob extends HttpServlet {
-    private SeekerService seekerService;
     private JobFormBean jobFormBean;
 
 
@@ -39,14 +40,15 @@ public class PostJob extends HttpServlet {
                 getServletContext().getRequestDispatcher("/jsp/postJob.jsp").forward(req,resp);
 
             }else if(url.contains("/seeker/postjob.do")) {
-                seekerService = SeekerService.getInstance();
-                seekerService.populateJobFormBean(req);
+                MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
+                JobService jobService = JobService.getInstance();
+                jobService.populateJobFormBean(req);
                 jobFormBean = (JobFormBean) req.getAttribute("JobFormBean");
                 if (jobFormBean!=null && !jobFormBean.validate(req)) {
                     getServletContext().getRequestDispatcher("/jsp/postJob.jsp").forward(req, resp);
                 }else{
-                    seekerService.storeJob(req);
-                    List<JobModel> jobModelList = seekerService.getJobsById(req);
+                    jobService.storeJob(req);
+                    List<JobModel> jobModelList = jobService.getJobsById(memberModel);
                     req.setAttribute("JobList",jobModelList);
                     getServletContext().getRequestDispatcher("/jsp/listJobs.jsp").forward(req,resp);
                 }

@@ -34,7 +34,7 @@ text-align:center
         <form action="/minicare-1.0-SNAPSHOT/jsp/seeker_homepage.jsp" class="button"> <input type="submit" value="HOME" > </form>
         </div>
         <c:choose>
-        <c:when test="${ActiveJobApplicationList.size()==0}">
+        <c:when test="${JobApplicationList.size()==0}">
         <h2 align="center"> NO JOBS TO DISPLAY </h2>
         </c:when>
         <c:otherwise>

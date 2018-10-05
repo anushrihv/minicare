@@ -104,14 +104,16 @@ public class JobDao {
 
     public JobModel getJobByJobId(int jobId) throws ClassNotFoundException,SQLException{
         Connection connection = JDBCHelper.getConnection();
-        String sql ="select * from job where Id=?";
+        String sql ="select * from job where Id=? and status=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,jobId);
+        preparedStatement.setString(2,Status.ACTIVE.name());
         ResultSet resultSet = preparedStatement.executeQuery();
         if(resultSet.next()){
             JobModel jobModel = new JobModel();
             jobModel.setId(resultSet.getInt("Id"));
             jobModel.setJobTitle(resultSet.getString("Title"));
+            jobModel.setPostedBy(resultSet.getInt("PostedBy"));
             jobModel.setStartDateTime(resultSet.getTimestamp("StartDateTime"));
             jobModel.setEndDateTime(resultSet.getTimestamp("EndDateTime"));
             jobModel.setPayPerHour(resultSet.getDouble("PayPerHour"));

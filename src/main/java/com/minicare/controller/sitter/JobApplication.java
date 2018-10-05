@@ -29,9 +29,10 @@ public class JobApplication extends HttpServlet {
             int id = (Integer)req.getSession(false).getAttribute("JobId");
             double expectedPay = Double.parseDouble(req.getParameter("expectedpay"));
             JobApplicationService jobApplicationService = JobApplicationService.getInstance();
-            List<JobApplicationDTO> jobApplicationList = jobApplicationService.storeJobApplication(req,id,expectedPay);
-            req.setAttribute("JobApplicationList",jobApplicationList);
-            getServletContext().getRequestDispatcher("/jsp/listJobApplications.jsp").forward(req,resp);
+            jobApplicationService.storeJobApplication(req,id,expectedPay);
+            //req.getSession().setAttribute("JobApplicationList",jobApplicationList);
+            //getServletContext().getRequestDispatcher("/jsp/listJobApplications.jsp").forward(req,resp);
+            resp.sendRedirect("/minicare-1.0-SNAPSHOT/sitter/listjobapplications.do");
         }catch (NumberFormatException n){
             req.setAttribute("ExpectedPayError","invalid input");
             getServletContext().getRequestDispatcher("/jsp/applyJob.jsp").forward(req,resp);

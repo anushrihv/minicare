@@ -1,7 +1,9 @@
 package com.minicare.controller.seeker;
 
 import com.minicare.Exception.MiniCareException;
+import com.minicare.dto.JobFormBean;
 import com.minicare.model.JobModel;
+import com.minicare.model.MemberModel;
 import com.minicare.service.JobService;
 
 import javax.servlet.ServletException;
@@ -25,10 +27,15 @@ public class EditJob extends HttpServlet {
 
     private void action(HttpServletRequest req, HttpServletResponse resp) {
         try {
+            MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
             int jobId = Integer.parseInt(req.getParameter("JobId"));
             JobService jobService = JobService.getInstance();
             JobModel jobModel = jobService.getJobByJobId(jobId);
-            req.setAttribute("JobModel",jobModel);
+            if(memberModel.getMemberId()!=jobModel.getPostedBy()){
+                throw new MiniCareException("YOU ARE NOT AUTHORISED TO ACCESS THIS RESOURCE");
+            }
+            JobFormBean jobFormBean = jobService.populateJobFormFromModel(jobModel);
+            req.setAttribute("JobFormBean",jobFormBean);
             getServletContext().getRequestDispatcher("/jsp/editJob.jsp").forward(req,resp);
         }catch (Exception e){
             Logger logger = Logger.getLogger("EditJob");

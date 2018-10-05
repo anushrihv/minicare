@@ -35,6 +35,7 @@ com\minicare\controller\sitter\ApplyJob.class
 com\minicare\dto\MemberFormBean.class
 com\minicare\service\JobApplicationService.class
 com\minicare\model\Type.class
+com\minicare\dto\DateTimeUtil.class
 com\minicare\service\SeekerService.class
 com\minicare\service\SitterService.class
 com\minicare\controller\sitter\ShowJob.class

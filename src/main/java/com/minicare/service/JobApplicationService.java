@@ -25,14 +25,14 @@ public class JobApplicationService {
         return jobApplicationService;
     }
 
-    public List<JobApplicationDTO> storeJobApplication(HttpServletRequest request , int jobId , double expectedPay) throws SQLException,ClassNotFoundException {
+    public void storeJobApplication(HttpServletRequest request , int jobId , double expectedPay) throws SQLException,ClassNotFoundException {
         JobApplicationDao jobApplicationDao = JobApplicationDao.getInstance();
 
         populateJobApplicationModel(request,jobId,expectedPay);
         JobApplicationModel jobApplicationModel = (JobApplicationModel) request.getAttribute("JobApplicationModel");
         jobApplicationDao.storeJobApplication(jobApplicationModel);
-        List<JobApplicationDTO> jobApplicationDTOList = getJobApplicationList(request);
-        return jobApplicationDTOList;
+//        List<JobApplicationDTO> jobApplicationDTOList = getJobApplicationList(request);
+//        return jobApplicationDTOList;
     }
 
     private void populateJobApplicationModel(HttpServletRequest request , int jobId , double expectedPay){

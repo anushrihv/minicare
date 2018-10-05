@@ -30,7 +30,7 @@ public class ShowJob extends HttpServlet {
             MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
             List<JobModel> jobModelList = jobService.getJobs(memberModel);
             req.setAttribute("JobList",jobModelList);
-            getServletContext().getRequestDispatcher("/jsp/listActiveJobs.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/jsp/showJobs.jsp").forward(req, resp);
         }catch (Exception e){
             throw new MiniCareException(e.getMessage());
         }

@@ -51,19 +51,19 @@ text-align:center
                 <td><c:out value="${Job.endDateTime}" /></td>
                 <td><c:out value="${Job.payPerHour}" /></td>
                 <td>
-                    <form action="/minicare-1.0-SNAPSHOT/seeker/editjob.do">
+                    <form action="/minicare-1.0-SNAPSHOT/seeker/editjob.do" method="post">
                     <input type="hidden" name="JobId" value="${Job.id}">
                     <input type="submit" value="Edit job" >
                     </form>
                 </td>
                 <td>
-                    <form action="/minicare-1.0-SNAPSHOT/seeker/listapplications.do">
+                    <form action="/minicare-1.0-SNAPSHOT/seeker/listapplications.do" method="post">
                     <input type="hidden" name="JobId" value="${Job.id}">
                     <input type="submit" value="List applications" >
                     </form>
                 </td>
                 <td>
-                    <form action="/minicare-1.0-SNAPSHOT/seeker/closejob.do">
+                    <form action="/minicare-1.0-SNAPSHOT/seeker/closejob.do" method="post">
                     <input type="hidden" name="JobId" value="${Job.id}">
                     <input type="submit" value="Close Job" >
                     </form>

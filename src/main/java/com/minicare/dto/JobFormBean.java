@@ -1,16 +1,17 @@
 package com.minicare.dto;
 
 import com.minicare.model.Status;
-
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
-import java.util.Calendar;
-
 
 public class JobFormBean implements ValidationForm {
     private String id;
     private String jobTitle;
     private String postedBy;
+    private String startDate;
+    private String startTime;
+    private String endDate;
+    private String endTime;
     private String startDateTime;
     private String endDateTime;
     private String payPerHour;
@@ -40,20 +41,52 @@ public class JobFormBean implements ValidationForm {
         this.postedBy = postedBy;
     }
 
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
     public String getStartDateTime() {
         return startDateTime;
     }
 
-    public void setStartDateTime(String startDateTime) {
-        this.startDateTime = startDateTime;
+    public void setStartDateTime()  {
+        startDateTime = startDate + " " + startTime + ":00";
     }
 
     public String getEndDateTime() {
         return endDateTime;
     }
 
-    public void setEndDateTime(String endDateTime) {
-        this.endDateTime = endDateTime;
+    public void setEndDateTime() {
+        endDateTime = endDate + " " + endTime + ":00";
     }
 
     public String getPayPerHour() {
@@ -76,19 +109,16 @@ public class JobFormBean implements ValidationForm {
         boolean status=true;
 
         if("".equals(jobTitle)){
-            req.setAttribute("JobTitleError","Job Title has to be entered");
-            status=false;
+            req.setAttribute("JobTitleError","Required field");
+            status = false;
         }else if(!(jobTitle.trim().matches("^[A-Za-z\\s]+$"))){
             req.setAttribute("JobTitleError","Job Title must have alphabets only");
             status=false;
         }
 
         if("".equals(startDateTime)){
-            req.setAttribute("StartDateTimeError","Start DateTime has to be entered");
-            status=false;
-        }else if(!startDateTime.trim().matches("[0-9]{4}[-][0-9]{2}[-][0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}([\\.][0-9])*")){
-            req.setAttribute("StartDateTimeError","Invalid format.Please follow the format YYYY-MM-DD HH:MM:SS");
-            status=false;
+            req.setAttribute("StartDateTimeError","Required field");
+            status = false;
         }else{
             Timestamp currentDateTime = new Timestamp(System.currentTimeMillis());
             Timestamp timestamp = null;
@@ -97,7 +127,7 @@ public class JobFormBean implements ValidationForm {
 
                 long milliseconds = timestamp.getTime() - currentDateTime.getTime();
                 if(milliseconds<0){
-                    req.setAttribute("StartDateTimeError","Invalid input . Start Date Time must be greater than current Date Time");
+                    req.setAttribute("StartDateTimeError","Start Date Time must be greater than current Date Time");
                     status=false;
                 }
             }catch (Exception e){
@@ -107,11 +137,8 @@ public class JobFormBean implements ValidationForm {
         }
 
         if("".equals(endDateTime)){
-            req.setAttribute("EndDateTimeError","End DateTime has to be entered");
-            status=false;
-        }else if(!endDateTime.trim().matches("[0-9]{4}[-][0-9]{2}[-][0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}([\\.][0-9])*")){
-            req.setAttribute("EndDateTimeError","Invalid format.Please follow the format YYYY-MM-DD HH:MM:SS");
-            status=false;
+            req.setAttribute("EndDateTimeError","Required field");
+            status = false;
         }else{
             Timestamp start = null;
             Timestamp end = null;
@@ -121,7 +148,7 @@ public class JobFormBean implements ValidationForm {
 
                 long milliseconds = end.getTime() - start.getTime();
                 if(milliseconds<0){
-                    req.setAttribute("EndDateTimeError","Invalid input . End Date Time must be greater than Start Date Time");
+                    req.setAttribute("EndDateTimeError","End Date Time must be greater than Start Date Time");
                     status=false;
                 }
             }catch (Exception e){
@@ -131,11 +158,18 @@ public class JobFormBean implements ValidationForm {
         }
 
         if("".equals(payPerHour)){
-            req.setAttribute("PayPerHourError","Pay Per Hour has to be entered");
-            status=false;
-        }else if(payPerHour.matches("(\\D)*")){
+            req.setAttribute("PayPerHourError","Required field");
+            status = false;
+        }else if(!payPerHour.matches("(\\d)+(\\.[0-9]+)*")){
             req.setAttribute("PayPerHourError","Invalid Input");
             status=false;
+        }else{
+            try{
+                Double.parseDouble(payPerHour);
+            }catch (Exception e){
+                req.setAttribute("PayPerHourError","Invalid input");
+                status = false;
+            }
         }
 
         return status;
