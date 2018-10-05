@@ -9,6 +9,8 @@ import com.minicare.model.JobModel;
 import com.minicare.model.MemberModel;
 import com.minicare.model.SeekerModel;
 import com.minicare.model.Type;
+
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
@@ -38,7 +40,7 @@ public class SeekerService {
         return jobModelList;
     }
 
-    public void closeSeekerAccount(int seekerId) throws ClassNotFoundException,SQLException{
+    public void closeSeekerAccount(int seekerId) throws NamingException,SQLException{
         MemberDao memberDao = MemberDao.getInstance();
         memberDao.deleteMember(seekerId);
     }
@@ -99,7 +101,7 @@ public class SeekerService {
         return seekerModel;
     }
 
-    public SeekerModel editSeekerAccount(HttpServletRequest request) throws ClassNotFoundException,SQLException{
+    public SeekerModel editSeekerAccount(HttpServletRequest request) throws ClassNotFoundException,SQLException, NamingException {
         SeekerDao seekerDao = SeekerDao.getInstance();
         MemberDao memberDao = MemberDao.getInstance();
 

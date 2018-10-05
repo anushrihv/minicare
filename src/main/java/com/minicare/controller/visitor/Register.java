@@ -1,10 +1,8 @@
 package com.minicare.controller.visitor;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.dto.SeekerFormBean;
 import com.minicare.dto.SitterFormBean;
-import com.minicare.model.SeekerModel;
-import com.minicare.model.SitterModel;
 import com.minicare.service.MemberService;
 import com.minicare.service.SeekerService;
 import com.minicare.service.SitterService;
@@ -76,7 +74,7 @@ public class Register extends HttpServlet {
             }
         }catch(Exception e){
             Logger logger = Logger.getLogger("Register");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

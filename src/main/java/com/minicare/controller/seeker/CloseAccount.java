@@ -1,6 +1,6 @@
 package com.minicare.controller.seeker;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.model.MemberModel;
 import com.minicare.service.JobApplicationService;
 import com.minicare.service.JobService;
@@ -40,7 +40,7 @@ public class CloseAccount extends HttpServlet {
             getServletContext().getRequestDispatcher("/jsp/welcome.jsp").forward(req,resp);
         }catch (Exception e){
             Logger logger = Logger.getLogger("CloseAccount");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
 

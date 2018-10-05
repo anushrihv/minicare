@@ -1,6 +1,6 @@
 package com.minicare.controller.seeker;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.model.JobModel;
 import com.minicare.model.MemberModel;
 import com.minicare.service.JobService;
@@ -35,7 +35,7 @@ public class CloseJob extends HttpServlet {
             getServletContext().getRequestDispatcher("/jsp/listJobs.jsp").forward(req,resp);
         }catch (Exception e){
             Logger logger = Logger.getLogger("CloseJob");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

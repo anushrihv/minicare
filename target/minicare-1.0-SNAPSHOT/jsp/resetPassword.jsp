@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+
 <style>
  input[type=submit] {
     background-color: #555555; /*black*/
@@ -15,6 +17,13 @@ text-align : center;
 </style>
 
 <html>
+<body>
+        <c:if test="${CurrentUser.type=='SITTER'}">
+            <div align="right"><form action="/minicare-1.0-SNAPSHOT/jsp/sitter_homepage.jsp" > <input type="submit" value="HOME" > </form></div>
+        </c:if>
+        <c:if test="${CurrentUser.type=='SEEKER'}">
+           <div align="right"><form action="/minicare-1.0-SNAPSHOT/jsp/seeker_homepage.jsp" > <input type="submit" value="HOME" > </form></div>
+        </c:if>
     <div align="center">
         <form action="/minicare-1.0-SNAPSHOT/member/resetpassword.do" method="post">
             <table>
@@ -34,10 +43,9 @@ text-align : center;
                 </tr>
                 <tr>
                 <td><input type="submit" value="Reset Password"></td>
-
                 </tr>
             </table>
-
         </form>
     </div>
+   </body>
 </html>

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class LoginFilter implements Filter {
+public class AuthenticationFilter implements Filter {
     ServletContext servletContext ;
 
     public void init(FilterConfig filterConfig) {

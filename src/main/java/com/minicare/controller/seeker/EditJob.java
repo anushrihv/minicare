@@ -1,6 +1,6 @@
 package com.minicare.controller.seeker;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.dto.JobFormBean;
 import com.minicare.model.JobModel;
 import com.minicare.model.MemberModel;
@@ -39,7 +39,7 @@ public class EditJob extends HttpServlet {
             getServletContext().getRequestDispatcher("/jsp/editJob.jsp").forward(req,resp);
         }catch (Exception e){
             Logger logger = Logger.getLogger("EditJob");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

@@ -47,6 +47,9 @@ public class MemberService {
         if(!memberModel.getPassword().equals(currentPasswordHash)){
             request.setAttribute("OldPasswordError","Incorrect password");
             status = false;
+        }if(request.getParameter("oldpassword").equals(request.getParameter("newpassword"))){
+            request.setAttribute("NewPasswordError","New password cannot be the same as old password");
+            return false;
         }if(!request.getParameter("newpassword").equals(request.getParameter("newpassword2"))){
             request.setAttribute("NewPasswordError","Passwords don't match");
             status = false;

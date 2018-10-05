@@ -10,6 +10,7 @@ import com.minicare.model.SeekerModel;
 import com.minicare.model.SitterModel;
 import com.minicare.model.Type;
 
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
@@ -29,7 +30,7 @@ public class SitterService {
         return sitterService;
     }
 
-    public void closeSitterAccount(int memberId) throws ClassNotFoundException,SQLException{
+    public void closeSitterAccount(int memberId) throws ClassNotFoundException,SQLException,NamingException{
         SitterDao sitterDao = SitterDao.getInstance();
         MemberDao memberDao = MemberDao.getInstance();
 
@@ -91,7 +92,7 @@ public class SitterService {
         return sitterModel;
     }
 
-    public SitterModel editSitterAccount(HttpServletRequest request) throws ClassNotFoundException,SQLException{
+    public SitterModel editSitterAccount(HttpServletRequest request) throws ClassNotFoundException,SQLException, NamingException {
         SitterDao sitterDao = SitterDao.getInstance();
         MemberDao memberDao = MemberDao.getInstance();
 

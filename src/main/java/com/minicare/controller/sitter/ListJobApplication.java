@@ -1,6 +1,6 @@
 package com.minicare.controller.sitter;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.dto.JobApplicationDTO;
 import com.minicare.service.JobApplicationService;
 
@@ -32,7 +32,7 @@ public class ListJobApplication extends HttpServlet {
             getServletContext().getRequestDispatcher("/jsp/listActiveJobApplications.jsp").forward(req,resp);
         }catch (Exception e){
             Logger logger = Logger.getLogger("ListJobApplication");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

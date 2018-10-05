@@ -1,10 +1,9 @@
 package com.minicare.controller.seeker;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.dto.SeekerFormBean;
 import com.minicare.model.MemberModel;
 import com.minicare.model.SeekerModel;
-import com.minicare.service.MemberService;
 import com.minicare.service.SeekerService;
 
 import javax.servlet.ServletException;
@@ -48,7 +47,7 @@ public class EditAccount extends HttpServlet {
 
         }catch (Exception e){
             Logger logger = Logger.getLogger("EditAccount");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

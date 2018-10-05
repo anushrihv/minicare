@@ -1,8 +1,6 @@
 package com.minicare.controller.sitter;
 
-import com.minicare.Exception.MiniCareException;
-import com.minicare.model.MemberModel;
-import com.minicare.service.JobApplicationService;
+import com.minicare.exception.MiniCareException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,7 +28,7 @@ public class ApplyJob extends HttpServlet{
             getServletContext().getRequestDispatcher("/jsp/applyJob.jsp").forward(req, resp);
         }catch (Exception e){
             Logger logger = Logger.getLogger("ApplyJob");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

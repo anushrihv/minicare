@@ -1,10 +1,9 @@
 package com.minicare.controller.sitter;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.model.JobModel;
 import com.minicare.model.MemberModel;
 import com.minicare.service.JobService;
-import com.minicare.service.SitterService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

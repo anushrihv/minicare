@@ -1,6 +1,6 @@
 package com.minicare.controller.member;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,7 +30,7 @@ public class Logout extends HttpServlet {
             getServletContext().getRequestDispatcher("/jsp/welcome.jsp").forward(req, resp);
         }catch (Exception e){
             Logger logger = Logger.getLogger("Logout");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

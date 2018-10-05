@@ -1,7 +1,5 @@
 package com.minicare.controller.member;
 
-import com.minicare.Exception.MiniCareException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

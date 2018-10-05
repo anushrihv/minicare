@@ -111,7 +111,7 @@ public class JobFormBean implements ValidationForm {
         if("".equals(jobTitle)){
             req.setAttribute("JobTitleError","Required field");
             status = false;
-        }else if(!(jobTitle.trim().matches("^[A-Za-z\\s]+$"))){
+        }else if(!(jobTitle.trim().matches("^[A-Za-z\\s\\d]+$"))){
             req.setAttribute("JobTitleError","Job Title must have alphabets only");
             status=false;
         }

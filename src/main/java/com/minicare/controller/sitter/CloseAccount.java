@@ -1,6 +1,6 @@
 package com.minicare.controller.sitter;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.model.MemberModel;
 import com.minicare.service.JobApplicationService;
 import com.minicare.service.SitterService;
@@ -38,7 +38,7 @@ public class CloseAccount extends HttpServlet {
 
         }catch (Exception e){
             Logger logger = Logger.getLogger("CloseAccount");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

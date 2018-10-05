@@ -128,13 +128,13 @@ public class VisitorService{
         Set<MemberModel> memberModelSet = memberDao.getMember(loginFormBean.getEmail());
         Iterator<MemberModel> iterator = memberModelSet.iterator();
         if(!iterator.hasNext()){
-            req.setAttribute("LoginEmailError","This Email does not exist . Please register to continue");
+            req.setAttribute("LoginEmailError","Email or Password is incorrect");
             status=false;
         }else{
             MemberModel memberModel = iterator.next();
             String memberStatus = memberModel.getStatus().name();
             if(memberStatus.equals("INACTIVE")){
-                req.setAttribute("LoginEmailError","This email does not exist. Please register to continue");
+                req.setAttribute("LoginEmailError","Email or Password is incorrect");
                 return false;
             }
             String dbPassword = memberModel.getPassword();

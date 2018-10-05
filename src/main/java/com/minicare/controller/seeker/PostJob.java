@@ -1,19 +1,16 @@
 package com.minicare.controller.seeker;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.dto.JobFormBean;
 import com.minicare.model.JobModel;
 import com.minicare.model.MemberModel;
 import com.minicare.service.JobService;
-import com.minicare.service.SeekerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.ResultSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,7 +52,7 @@ public class PostJob extends HttpServlet {
             }
         }catch (Exception e){
             Logger logger = Logger.getLogger("PostJob");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

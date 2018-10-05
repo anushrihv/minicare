@@ -1,4 +1,4 @@
-package com.minicare.Exception;
+package com.minicare.exception;
 
 public class MiniCareException extends RuntimeException{
     public MiniCareException(String message){

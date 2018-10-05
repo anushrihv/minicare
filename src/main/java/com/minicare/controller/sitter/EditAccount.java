@@ -1,12 +1,10 @@
 package com.minicare.controller.sitter;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.dto.SitterFormBean;
 import com.minicare.model.MemberModel;
-import com.minicare.model.SeekerModel;
 import com.minicare.model.SitterModel;
 import com.minicare.service.MemberService;
-import com.minicare.service.SeekerService;
 import com.minicare.service.SitterService;
 
 import javax.servlet.ServletException;
@@ -50,7 +48,7 @@ public class EditAccount extends HttpServlet {
             }
         }catch (Exception e){
             Logger logger = Logger.getLogger("EditAccount");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

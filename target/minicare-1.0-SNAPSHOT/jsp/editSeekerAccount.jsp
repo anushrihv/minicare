@@ -66,7 +66,7 @@
                 <input type="hidden" name="password" value="${CurrentUser.password}">
                 <input type="hidden" name="password2" value="${CurrentUser.password}">
             </table>
-            <input type="submit" value="Submit">
+            <input type="submit" value="SAVE">
         </form></div>
 
     </body>

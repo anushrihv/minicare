@@ -81,8 +81,8 @@ public class MemberDao {
         return memberModelSet;
     }
 
-    public void deleteMember(int memberId) throws ClassNotFoundException,SQLException{
-        Connection connection = JDBCHelper.getConnection();
+    public void deleteMember(int memberId) throws NamingException,SQLException{
+        Connection connection = JNDIHelper.getJNDIConnection();
         String sql = "update member SET Status=? where Id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, Status.INACTIVE.name());
@@ -93,8 +93,8 @@ public class MemberDao {
         try { connection.close(); } catch (Exception e) { /* ignored */ }
     }
 
-    public void editMember(MemberModel memberModel) throws ClassNotFoundException,SQLException{
-        Connection connection = JDBCHelper.getConnection();
+    public void editMember(MemberModel memberModel) throws NamingException,SQLException{
+        Connection connection = JNDIHelper.getJNDIConnection();
         String sql ="update member SET FirstName=? , LastName=? , PhoneNumber=?  , Address=? " +
                 "where Id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);

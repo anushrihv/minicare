@@ -1,6 +1,6 @@
 package com.minicare.controller.member;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.dto.PasswordHashHelper;
 import com.minicare.model.MemberModel;
 import com.minicare.model.Type;
@@ -50,7 +50,7 @@ public class ResetPassword extends HttpServlet {
             }
         }catch (Exception e){
             Logger logger = Logger.getLogger("ResetPassword");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw  new MiniCareException(e);
         }
     }

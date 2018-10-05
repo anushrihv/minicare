@@ -50,7 +50,7 @@ text-align : center;
                 </tr>
 
             </table>
-            <input type="submit" value="EDIT JOB">
+            <input type="submit" value="SAVE">
         </form></div>
     </body>
 </html>

@@ -1,6 +1,6 @@
 package com.minicare.controller.seeker;
 
-import com.minicare.Exception.MiniCareException;
+import com.minicare.exception.MiniCareException;
 import com.minicare.dto.JobFormBean;
 import com.minicare.model.JobModel;
 import com.minicare.model.MemberModel;
@@ -49,7 +49,7 @@ public class UpdateJob extends HttpServlet {
             }
         }catch (Exception e){
             Logger logger = Logger.getLogger("UpdateJob");
-            logger.log(Level.SEVERE,"Exception occurred",e);
+            logger.log(Level.SEVERE,"exception occurred",e);
             throw new MiniCareException(e);
         }
     }

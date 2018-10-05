@@ -1,11 +1,7 @@
 package com.minicare.controller.seeker;
 
-import com.minicare.Exception.MiniCareException;
-import com.minicare.dto.SeekerFormBean;
+import com.minicare.exception.MiniCareException;
 import com.minicare.model.MemberModel;
-import com.minicare.model.SeekerModel;
-import com.minicare.model.SitterModel;
-import com.minicare.service.MemberService;
 import com.minicare.service.SeekerService;
 
 import javax.servlet.ServletException;
