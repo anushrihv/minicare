@@ -1,11 +1,15 @@
 package com.minicare.service;
 
+import com.minicare.controller.seeker.SeekerUtil;
+import com.minicare.controller.sitter.SitterUtil;
+import com.minicare.controller.visitor.VisitorUtil;
 import com.minicare.dao.MemberDao;
 import com.minicare.dao.SeekerDao;
 import com.minicare.dao.SitterDao;
 import com.minicare.dto.*;
 import com.minicare.model.*;
 
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.ResultSet;
@@ -37,92 +41,29 @@ public class VisitorService{
         return visitorService;
     }
 
-    public void populateSitterFormBean(HttpServletRequest req)  {
 
-        sitterFormBean = new SitterFormBean();
-        sitterFormBean.setFirstname(req.getParameter("firstname"));
-        sitterFormBean.setLastname(req.getParameter("lastname"));
-        sitterFormBean.setPhonenumber(req.getParameter("phonenumber"));
-        sitterFormBean.setEmail(req.getParameter("email"));
-        sitterFormBean.setAddress(req.getParameter("address"));
-        sitterFormBean.setPassword(req.getParameter("password"));
-        sitterFormBean.setPassword2(req.getParameter("password2"));
-        sitterFormBean.setYearsOfExperience(req.getParameter("yearsofexperience"));
-        sitterFormBean.setExpectedPay(req.getParameter("expectedpay"));
-        req.setAttribute("SitterFormBean",sitterFormBean);
-    }
-
-    public void storeSitterDetails(HttpServletRequest req,HttpSession session) throws SQLException,ClassNotFoundException{
-        populateSitterModel(req);
-        SitterModel sitterModel = (SitterModel) req.getAttribute("SitterModel");
+    public void storeSitterDetails(HttpServletRequest req,HttpSession session) throws SQLException,ClassNotFoundException,NamingException{
+        VisitorUtil visitorUtil = VisitorUtil.getInstance();
+        SitterUtil sitterUtil = SitterUtil.getInstance();
+        SitterModel sitterModel = sitterUtil.populateSitterModel(req);
+        //SitterModel sitterModel = (SitterModel) req.getAttribute("SitterModel");
         sitterDao = SitterDao.getInstance();
         sitterDao.insertSitter(sitterModel);
-        populateModelFromDb(sitterModel.getEmail(),session);
+        visitorUtil.populateModelFromDb(sitterModel.getEmail(),session);
     }
 
-    public void storeSeekerDetails(HttpServletRequest req,HttpSession session) throws SQLException,ClassNotFoundException {
-        populateSeekerModel(req);
-        SeekerModel seekerModel = (SeekerModel) req.getAttribute("SeekerModel");
+    public void storeSeekerDetails(HttpServletRequest req,HttpSession session) throws SQLException,ClassNotFoundException, NamingException {
+        VisitorUtil visitorUtil = VisitorUtil.getInstance();
+        SeekerUtil seekerUtil = SeekerUtil.getInstance();
+        SeekerModel seekerModel = seekerUtil.populateSeekerModel(req);
+        //SeekerModel seekerModel = (SeekerModel) req.getAttribute("SeekerModel");
         seekerDao = SeekerDao.getInstance();
         seekerDao.insertSeeker(seekerModel);
-        populateModelFromDb(seekerModel.getEmail(),session);
+        visitorUtil.populateModelFromDb(seekerModel.getEmail(),session);
     }
 
-    private void populateSitterModel(HttpServletRequest req) {
-        sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
-        sitterModel = new SitterModel();
-        long phoneNumber = Long.parseLong(sitterFormBean.getPhonenumber());
-        int yearsOfExperience = Integer.parseInt(sitterFormBean.getYearsOfExperience());
-        int expectedPay = Integer.parseInt(sitterFormBean.getExpectedPay());
-        String passwordHash = PasswordHashHelper.get_SHA_256_SecurePassword(sitterFormBean.getPassword());
 
-        sitterModel.setFirstName(sitterFormBean.getFirstname());
-        sitterModel.setLastName(sitterFormBean.getLastname());
-        sitterModel.setPhoneNumber(phoneNumber);
-        sitterModel.setEmail(sitterFormBean.getEmail());
-        sitterModel.setType(Type.SITTER);
-        sitterModel.setAddress(sitterFormBean.getAddress());
-        sitterModel.setPassword(passwordHash);
-        sitterModel.setYearsOfExperience(yearsOfExperience);
-        sitterModel.setExpectedPay(expectedPay);
-
-        req.setAttribute("SitterModel",sitterModel);
-    }
-
-    private void populateSeekerModel(HttpServletRequest req) {
-        seekerFormBean = (SeekerFormBean) req.getAttribute("SeekerFormBean");
-        seekerModel = new SeekerModel();
-        int numberOfChildren;
-        long phoneNumber = Long.parseLong(seekerFormBean.getPhonenumber());
-
-        String passwordHash = PasswordHashHelper.get_SHA_256_SecurePassword(seekerFormBean.getPassword());
-        try {
-            numberOfChildren = Integer.parseInt(seekerFormBean.getNumberOfChildren());
-        }catch(NumberFormatException e){
-            numberOfChildren = 0;
-        }
-
-        seekerModel.setFirstName(seekerFormBean.getFirstname());
-        seekerModel.setLastName(seekerFormBean.getLastname());
-        seekerModel.setPhoneNumber(phoneNumber);
-        seekerModel.setEmail(seekerFormBean.getEmail());
-        seekerModel.setType(Type.SEEKER);
-        seekerModel.setAddress(seekerFormBean.getAddress());
-        seekerModel.setPassword(passwordHash);
-        seekerModel.setNumberOfChildren(numberOfChildren);
-        seekerModel.setSpouseName(seekerFormBean.getSpouseName());
-
-        req.setAttribute("SeekerModel",seekerModel);
-    }
-
-    public void populateLoginForm(HttpServletRequest request){
-        LoginFormBean loginFormBean = new LoginFormBean();
-        loginFormBean.setEmail(request.getParameter("loginemail"));
-        loginFormBean.setPassword(request.getParameter("loginpassword"));
-        request.setAttribute("LoginFormBean",loginFormBean);
-    }
-
-    public boolean authenticate(HttpServletRequest req , LoginFormBean loginFormBean) throws SQLException,ClassNotFoundException{
+    public boolean authenticate(HttpServletRequest req , LoginFormBean loginFormBean) throws SQLException,NamingException{
         boolean status=true;
         memberDao = MemberDao.getInstance();
         Set<MemberModel> memberModelSet = memberDao.getMember(loginFormBean.getEmail());
@@ -149,15 +90,7 @@ public class VisitorService{
         return status;
     }
 
-    public void populateModelFromDb(String email, HttpSession session) throws SQLException,ClassNotFoundException{
-        memberDao = MemberDao.getInstance();
 
-        Set<MemberModel> memberModelSet = memberDao.getMember(email);
-        Iterator<MemberModel> iterator = memberModelSet.iterator();
-        MemberModel memberModel = iterator.next();
-
-        session.setAttribute("CurrentUser",memberModel);
-    }
 
 
 }

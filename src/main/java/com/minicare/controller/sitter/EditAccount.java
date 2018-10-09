@@ -6,7 +6,6 @@ import com.minicare.model.MemberModel;
 import com.minicare.model.SitterModel;
 import com.minicare.service.MemberService;
 import com.minicare.service.SitterService;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,11 +31,12 @@ public class EditAccount extends HttpServlet {
             MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
             SitterService sitterService = SitterService.getInstance();
             MemberService memberService = MemberService.getInstance();
+            SitterUtil sitterUtil = SitterUtil.getInstance();
             SitterModel sitterModel = sitterService.getSitter(memberModel.getMemberId());
 
             req.setAttribute("SitterModel",sitterModel);
-            sitterService.populateSitterFormBean(req);
-            SitterFormBean sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
+            SitterFormBean sitterFormBean = sitterUtil.populateSitterFormBean(req);
+            //SitterFormBean sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
             if(!sitterFormBean.validate(req)){
                 getServletContext().getRequestDispatcher("/jsp/editSitterAccount.jsp").forward(req,resp);
             }else{

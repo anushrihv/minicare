@@ -1,5 +1,7 @@
 package com.minicare.controller.visitor;
 
+import com.minicare.controller.seeker.SeekerUtil;
+import com.minicare.controller.sitter.SitterUtil;
 import com.minicare.exception.MiniCareException;
 import com.minicare.dto.SeekerFormBean;
 import com.minicare.dto.SitterFormBean;
@@ -38,14 +40,15 @@ public class Register extends HttpServlet {
             VisitorService visitorService = VisitorService.getInstance();
             SeekerService seekerService = SeekerService.getInstance();
             SitterService sitterService = SitterService.getInstance();
+            SitterUtil sitterUtil = SitterUtil.getInstance();
+            SeekerUtil seekerUtil = SeekerUtil.getInstance();
             String type = req.getParameter("type");
 
 
             if (type.equals("Sitter")) {
-                sitterService.populateSitterFormBean(req);
-                sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
+                sitterFormBean = sitterUtil.populateSitterFormBean(req);
+                //sitterFormBean = (SitterFormBean) req.getAttribute("SitterFormBean");
                 MemberService memberService = MemberService.getInstance();
-
                 if (!sitterFormBean.validate(req)) {
                     getServletContext().getRequestDispatcher("/jsp/sitter_register.jsp").forward(req, resp);
                 } else if(!memberService.uniqueEmail(sitterFormBean.getEmail())){
@@ -57,8 +60,8 @@ public class Register extends HttpServlet {
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/sitter/homepage.do");
                 }
             } else {
-                seekerService.populateSeekerFormBean(req);
-                seekerFormBean = (SeekerFormBean) req.getAttribute("SeekerFormBean");
+                seekerFormBean = seekerUtil.populateSeekerFormBean(req);
+                //seekerFormBean = (SeekerFormBean) req.getAttribute("SeekerFormBean");
                 MemberService memberService = MemberService.getInstance();
 
                 if (!seekerFormBean.validate(req)) {

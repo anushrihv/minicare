@@ -30,15 +30,15 @@ public class UpdateJob extends HttpServlet {
         try {
             int jobId = Integer.parseInt(req.getParameter("jobid"));
             JobService jobService = JobService.getInstance();
+            JobUtil jobUtil = JobUtil.getInstance();
             JobModel jobModel = jobService.getJobByJobId(jobId);
             MemberModel memberModel = (MemberModel) req.getSession(false).getAttribute("CurrentUser");
             if(memberModel.getMemberId()!=jobModel.getPostedBy()){
                 throw new MiniCareException("YOU ARE NOT AUTHORISED TO ACCESS THIS RESOURCE");
             }
             req.setAttribute("JobModel",jobModel);
-            jobService.populateJobFormBean(req);
-            JobFormBean jobFormBean = (JobFormBean) req.getAttribute("JobFormBean");
-
+            JobFormBean jobFormBean = jobUtil.populateJobFormBean(req);
+            //JobFormBean jobFormBean = (JobFormBean) req.getAttribute("JobFormBean");
             if(!jobFormBean.validate(req)){
                 getServletContext().getRequestDispatcher("/jsp/editJob.jsp").forward(req,resp);
             }else {

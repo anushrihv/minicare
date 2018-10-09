@@ -29,8 +29,9 @@ public class Login extends HttpServlet {
     private void action(HttpServletRequest req , HttpServletResponse resp)  {
         try {
             VisitorService visitorService = VisitorService.getInstance();
-            visitorService.populateLoginForm(req);
-            LoginFormBean loginFormBean = (LoginFormBean) req.getAttribute("LoginFormBean");
+            VisitorUtil visitorUtil = VisitorUtil.getInstance();
+            LoginFormBean loginFormBean = visitorUtil.populateLoginForm(req);
+            //LoginFormBean loginFormBean = (LoginFormBean) req.getAttribute("LoginFormBean");
             if (!loginFormBean.validate(req)) {
                 getServletContext().getRequestDispatcher("/jsp/welcome.jsp").forward(req, resp);
             }else if (!visitorService.authenticate(req, loginFormBean)) {
@@ -39,7 +40,7 @@ public class Login extends HttpServlet {
                 String type= loginFormBean.getType();
                 String email = loginFormBean.getEmail();
                 HttpSession session = req.getSession();
-                visitorService.populateModelFromDb(email,session);
+                visitorUtil.populateModelFromDb(email,session);
                 if(type.equals("SITTER")) {
                     resp.sendRedirect("/minicare-1.0-SNAPSHOT/sitter/homepage.do");
                 }

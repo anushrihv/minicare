@@ -1,10 +1,8 @@
 package com.minicare.dao;
 
 import com.minicare.model.MemberModel;
-import com.minicare.model.SeekerModel;
 import com.minicare.model.Status;
 import com.minicare.model.Type;
-
 import javax.naming.NamingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,8 +44,8 @@ public class MemberDao {
 
     }
 
-    public Set<MemberModel> getMember(String email) throws SQLException,ClassNotFoundException {
-        Connection connection = JDBCHelper.getConnection();
+    public Set<MemberModel> getMember(String email) throws SQLException,NamingException {
+        Connection connection = JNDIHelper.getJNDIConnection();
         PreparedStatement preparedStatement;
         ResultSet resultSet;
         Set<MemberModel> memberModelSet = new HashSet<MemberModel>();
@@ -121,12 +119,13 @@ public class MemberDao {
         connection.close();
     }
 
-    public Set<MemberModel> getAllMembers() throws NamingException,SQLException{
+    public Set<MemberModel> searchMember(String email) throws NamingException,SQLException{
         Set<MemberModel> memberModelSet = new HashSet<>();
         Connection connection = JNDIHelper.getJNDIConnection();
-        String sql = "select * from member where status=?";
+        String sql = "select * from member where EmailAddress like ? and status=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1,Status.ACTIVE.name());
+        preparedStatement.setString(1,"%"+email+"%");
+        preparedStatement.setString(2,Status.ACTIVE.name());
         ResultSet resultSet = preparedStatement.executeQuery();
         while(true){
             boolean contains = resultSet.next();

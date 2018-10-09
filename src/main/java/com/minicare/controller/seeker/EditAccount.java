@@ -31,11 +31,12 @@ public class EditAccount extends HttpServlet {
             HttpSession session = req.getSession(false);
             MemberModel memberModel = (MemberModel) session.getAttribute("CurrentUser");
             SeekerService seekerService = SeekerService.getInstance();
+            SeekerUtil seekerUtil = SeekerUtil.getInstance();
             SeekerModel seekerModel = seekerService.getSeeker(memberModel.getMemberId());
 
             req.setAttribute("SeekerModel",seekerModel);
-            seekerService.populateSeekerFormBean(req);
-            SeekerFormBean seekerFormBean = (SeekerFormBean) req.getAttribute("SeekerFormBean");
+            SeekerFormBean seekerFormBean = seekerUtil.populateSeekerFormBean(req);
+            //SeekerFormBean seekerFormBean = (SeekerFormBean) req.getAttribute("SeekerFormBean");
             if(!seekerFormBean.validate(req)){
                 getServletContext().getRequestDispatcher("/jsp/editSeekerAccount.jsp").forward(req,resp);
             }else{

@@ -2,6 +2,8 @@ package com.minicare.dao;
 
 import com.minicare.model.MemberModel;
 import com.minicare.model.SeekerModel;
+
+import javax.naming.NamingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,8 +27,8 @@ public class SeekerDao {
         return seekerDao;
     }
 
-    public void insertSeeker(SeekerModel seekerModel) throws ClassNotFoundException, SQLException {
-            Connection connection = JDBCHelper.getConnection();
+    public void insertSeeker(SeekerModel seekerModel) throws SQLException, NamingException {
+            Connection connection = JNDIHelper.getJNDIConnection();
             MemberDao memberDao = MemberDao.getInstance();
             memberDao.insertMember(connection, seekerModel);
 
@@ -46,9 +48,9 @@ public class SeekerDao {
             try { JDBCHelper.closeConnection(); } catch (Exception e) { /* ignored */ }
     }
 
-    public SeekerModel getSeeker(int seekerId) throws ClassNotFoundException, SQLException{
+    public SeekerModel getSeeker(int seekerId) throws NamingException, SQLException{
         SeekerModel seekerModel = new SeekerModel();
-        Connection connection = JDBCHelper.getConnection();
+        Connection connection = JNDIHelper.getJNDIConnection();
         String sql = "select MemberId,NumberOfChildren,SpouseName from seeker where MemberId=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,seekerId);
@@ -64,8 +66,8 @@ public class SeekerDao {
         return seekerModel;
     }
 
-    public void editSeeker(SeekerModel seekerModel) throws ClassNotFoundException, SQLException{
-        Connection connection = JDBCHelper.getConnection();
+    public void editSeeker(SeekerModel seekerModel) throws NamingException, SQLException{
+        Connection connection = JNDIHelper.getJNDIConnection();
         String sql = "update seeker SET NumberOfChildren=? , SpouseName=? where MemberId=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,seekerModel.getNumberOfChildren());

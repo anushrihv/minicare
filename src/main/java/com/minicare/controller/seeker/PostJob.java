@@ -38,9 +38,10 @@ public class PostJob extends HttpServlet {
 
             }else if(url.contains("/seeker/postjob.do")) {
                 MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
+                JobUtil jobUtil = JobUtil.getInstance();
                 JobService jobService = JobService.getInstance();
-                jobService.populateJobFormBean(req);
-                jobFormBean = (JobFormBean) req.getAttribute("JobFormBean");
+                JobFormBean jobFormBean = jobUtil.populateJobFormBean(req);
+                //jobFormBean = (JobFormBean) req.getAttribute("JobFormBean");
                 if (jobFormBean!=null && !jobFormBean.validate(req)) {
                     getServletContext().getRequestDispatcher("/jsp/postJob.jsp").forward(req, resp);
                 }else{

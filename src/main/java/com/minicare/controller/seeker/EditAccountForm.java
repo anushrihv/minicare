@@ -26,8 +26,8 @@ public class EditAccountForm extends HttpServlet {
     private void action(HttpServletRequest req, HttpServletResponse resp) {
         try {
             MemberModel memberModel = (MemberModel) req.getSession().getAttribute("CurrentUser");
-            SeekerService seekerService = SeekerService.getInstance();
-            seekerService.populateSeekerFormBeanBySeekerModel(memberModel,req);
+            SeekerUtil seekerUtil = SeekerUtil.getInstance();
+            seekerUtil.populateSeekerFormBeanBySeekerModel(memberModel,req);
             getServletContext().getRequestDispatcher("/jsp/editSeekerAccount.jsp").forward(req,resp);
 
         }catch (Exception e){

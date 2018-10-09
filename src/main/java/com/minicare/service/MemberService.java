@@ -3,11 +3,9 @@ package com.minicare.service;
 import com.minicare.dao.MemberDao;
 import com.minicare.dto.PasswordHashHelper;
 import com.minicare.model.MemberModel;
-
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -26,7 +24,7 @@ public class MemberService {
         return memberService;
     }
 
-    public  boolean uniqueEmail(String email) throws ClassNotFoundException, SQLException {
+    public  boolean uniqueEmail(String email) throws NamingException, SQLException {
         MemberDao memberDao = MemberDao.getInstance();
         Set<MemberModel> memberModelSet = memberDao.getMember(email);
         Iterator<MemberModel> iterator = memberModelSet.iterator();
@@ -63,19 +61,9 @@ public class MemberService {
         memberDao.updatePassword(memberId,newPasswordHash);
     }
 
-    public Set<MemberModel> searchMember(String email) throws NamingException, SQLException{
+    public Set<MemberModel> searchMember(String email) throws NamingException, SQLException {
         MemberDao memberDao = MemberDao.getInstance();
-        Set<MemberModel> memberModelSet = memberDao.getAllMembers();
-        Set<MemberModel> searchResultSet = new HashSet<>();
-        Iterator<MemberModel> iterator = memberModelSet.iterator();
-        MemberModel memberModel;
-        while(iterator.hasNext()){
-            memberModel = iterator.next();
-            String dbemail = memberModel.getEmail();
-            if(dbemail.contains(email)){
-                searchResultSet.add(memberModel);
-            }
-        }
-        return searchResultSet;
+        Set<MemberModel> memberModelSet = memberDao.searchMember(email);
+        return memberModelSet;
     }
 }

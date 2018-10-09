@@ -5,6 +5,7 @@ import com.minicare.model.SeekerModel;
 import com.minicare.model.SitterModel;
 import com.minicare.model.Status;
 
+import javax.naming.NamingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,8 +28,8 @@ public class SitterDao{
         return sitterDao;
     }
 
-    public void insertSitter(SitterModel sitterModel) throws ClassNotFoundException, SQLException {
-        Connection connection = JDBCHelper.getConnection();
+    public void insertSitter(SitterModel sitterModel) throws NamingException, SQLException {
+        Connection connection = JNDIHelper.getJNDIConnection();
         PreparedStatement preparedStatement;
         MemberDao memberDao = MemberDao.getInstance();
         memberDao.insertMember(connection,sitterModel);
@@ -49,8 +50,8 @@ public class SitterDao{
         try { connection.close(); } catch (Exception e) { /* ignored */ }
     }
 
-    public void deleteSitter(int memberId) throws ClassNotFoundException, SQLException{
-        Connection connection = JDBCHelper.getConnection();
+    public void deleteSitter(int memberId) throws NamingException, SQLException{
+        Connection connection = JNDIHelper.getJNDIConnection();
         String sql ="update sitter SET Status=? where MemberId=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, Status.INACTIVE.name());
@@ -61,9 +62,9 @@ public class SitterDao{
         try { connection.close(); } catch (Exception e) { /* ignored */ }
     }
 
-    public SitterModel getSitter(int sitterId) throws ClassNotFoundException,SQLException{
+    public SitterModel getSitter(int sitterId) throws NamingException,SQLException{
         SitterModel sitterModel = new SitterModel();
-        Connection connection = JDBCHelper.getConnection();
+        Connection connection = JNDIHelper.getJNDIConnection();
         String sql = "select MemberId,YearsOfExperience,ExpectedPay from sitter where MemberId=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,sitterId);
@@ -79,8 +80,8 @@ public class SitterDao{
         return sitterModel;
     }
 
-    public void editSitter(SitterModel sitterModel) throws ClassNotFoundException, SQLException{
-        Connection connection = JDBCHelper.getConnection();
+    public void editSitter(SitterModel sitterModel) throws NamingException, SQLException{
+        Connection connection = JNDIHelper.getJNDIConnection();
         String sql = "update sitter SET YearsOfExperience=? , ExpectedPay=? where MemberId=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,sitterModel.getYearsOfExperience());

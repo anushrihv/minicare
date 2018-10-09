@@ -28,8 +28,8 @@
     <display-name>Minicare webapp</display-name>
 
     <filter>
-        <filter-name>LoginFilter</filter-name>
-        <filter-class>com.minicare.filter.LoginFilter</filter-class>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>com.minicare.filter.AuthenticationFilter</filter-class>
     </filter>
     <filter>
         <filter-name>AuthorizationFilter</filter-name>
@@ -37,7 +37,7 @@
     </filter>
 
     <filter-mapping>
-        <filter-name>LoginFilter</filter-name>
+        <filter-name>AuthenticationFilter</filter-name>
         <url-pattern>/sitter/*</url-pattern>
         <url-pattern>/seeker/*</url-pattern>
         <url-pattern>/member/*</url-pattern>
